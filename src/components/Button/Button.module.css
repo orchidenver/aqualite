@@ -1,0 +1,37 @@
+.button {
+  border-radius: 100px;
+  width: 50vw;
+  max-width: 170px;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    rgba(14, 116, 209, 1) 30%,
+    rgba(34, 167, 242, 1) 100%
+  );
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(57, 206, 255, 1) 100%,
+    rgba(91, 167, 255, 1) 100%
+  );
+}
+
+.button:active,
+.button:focus {
+  outline: none;
+}
+
+.light,
+.light:hover,
+.light:active,
+.light:focus {
+  background: #fff;
+  color: #003261;
+  border: 1px solid #5ba7ff;
+}

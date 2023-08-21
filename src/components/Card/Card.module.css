@@ -1,0 +1,25 @@
+.card {
+  width: 65vw;
+  max-width: 250px;
+  height: 70vh;
+  max-height: 340px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.card__img {
+  width: 60%;
+}
+
+.card__title {
+  color: #52acff;
+  text-transform: uppercase;
+}
+
+.card__text {
+  color: #003261;
+  width: 50%;
+}
