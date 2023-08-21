@@ -1,0 +1,23 @@
+Forms & validation:
+https://blog.logrocket.com/building-type-safe-forms-react-ts-form/
+
+Routring:
+React-Router-Dom
+https://semaphoreci.com/blog/routing-layer-react
+
+State management:
+Context + useReducer
+
+Emailing:
+emailjs / telegram
+https://www.youtube.com/watch?v=RviYQrNdDok&ab_channel=AVISTV
+
+SEO:
+React-Helmet
+React-Snap
+
+Backend (text, prices etc):
+Firebase
+
+Order storage:
+Cookies
