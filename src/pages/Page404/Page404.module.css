@@ -1,0 +1,31 @@
+.error-page {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color-light);
+}
+
+.error-page__img {
+  width: 60vw;
+}
+
+.error-page__title {
+  font-size: 20vh;
+  line-height: 20vh;
+  font-style: normal;
+  font-weight: 700;
+  background: linear-gradient(
+    -45deg,
+    rgba(57, 206, 255, 1) 30%,
+    rgba(91, 167, 255, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.error-page__text {
+  max-width: 50vw;
+  color: var(--text-color);
+}
