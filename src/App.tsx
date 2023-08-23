@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router/PageMapping";
+import Preloader from "./components/Preloader";
 
 function App() {
   const [load, setLoad] = useState<boolean>(false);
@@ -16,7 +17,6 @@ function App() {
     });
   }, []);
 
-  return <>{load ? "LOADING" : <RouterProvider router={router} />}</>;
+  return <>{load ? <Preloader /> : <RouterProvider router={router} />}</>;
 }
-
 export default App;

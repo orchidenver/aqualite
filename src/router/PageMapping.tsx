@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import { PathConstants } from "./PageRoutes";
 import Layout from "../components/Layout/Layout";
-import Spinner from "../components/Spinner";
+import Preloader from "../components/Preloader";
 
 const Cart = lazy(() => import("../pages/CartPage"));
 const Order = lazy(() => import("../pages/FastOrder"));
@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
   {
     path: PathConstants.PAGE404,
     element: (
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<Preloader />}>
         <Error />
       </Suspense>
     ),
