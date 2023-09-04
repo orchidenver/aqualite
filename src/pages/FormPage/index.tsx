@@ -134,44 +134,4 @@ export default function FormPage() {
       </MyForm>
     </section>
   );
-  // return (
-  //   <section className="user-data">
-  //     <h3 className="user-data__title">вкажіть інформацію для доставки</h3>
-  //     <form className="form">
-  //       <div className="name">
-  //         <span>*</span>
-  //         <label htmlFor="name">
-  //           Ім'я
-  //           <input type="text" id="name" />
-  //         </label>
-  //       </div>
-  //       <div className="phone">
-  //         <span>*</span>
-  //         <label htmlFor="phone">
-  //           Телефон
-  //           <input type="number" id="phone" />
-  //         </label>
-  //       </div>
-  //       <label htmlFor="street">
-  //         Вулиця
-  //         <input type="text" id="street" />
-  //       </label>
-  //       <div className="form__address">
-  //         <label htmlFor="building">
-  //           Дім
-  //           <input type="text" id="building" />
-  //         </label>
-  //         <label htmlFor="porch">
-  //           Під'їзд
-  //           <input type="text" id="porch" />
-  //         </label>
-  //         <label htmlFor="flat">
-  //           Квартира
-  //           <input type="text" id="flat" />
-  //         </label>
-  //       </div>
-  //       <input type="submit" value="Відправити" />
-  //     </form>
-  //   </section>
-  // );
 }
