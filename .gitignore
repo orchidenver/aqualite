@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 /notes.txt
 /projectConfigNotes.txt
+
+.env
+.env.example
+.env.local
+.env.staging
