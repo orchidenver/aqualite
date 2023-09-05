@@ -1,4 +1,4 @@
-import { JSONValue } from "../typings";
+import { JSONValue, Anchors } from "../typings";
 
 const makePostRequest = (url: string, data: JSONValue) => {
   return fetch(url, {
@@ -75,3 +75,20 @@ export const sendNotification = async (
     chat_id: id,
   });
 };
+
+export function ukrToEng(value: string) {
+  switch (value) {
+    case "магазин":
+      return Anchors.Shop;
+    case "доставка":
+      return Anchors.Delivery;
+    case Anchors.AboutWater:
+      return "aboutwater";
+    case "склад води":
+      return Anchors.Composition;
+    case "контакти":
+      return Anchors.Contacts;
+    default:
+      Anchors.Hero;
+  }
+}

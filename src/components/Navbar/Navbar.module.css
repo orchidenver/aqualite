@@ -1,0 +1,157 @@
+header {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.header__logo {
+  height: 55px;
+}
+
+.header__img {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 80%;
+  max-width: 1450px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  height: auto;
+  align-items: center;
+  position: relative;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.nav__list {
+  display: flex;
+  gap: 1.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav__list--primary {
+  margin: 0 auto;
+}
+
+.nav__list--secondary {
+  display: flex;
+  align-items: center;
+}
+
+.nav__item a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--h3-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background-color: pink;
+  padding: 0.25rem 0.4rem;
+  border-radius: 100px;
+}
+
+.basket {
+  cursor: pointer;
+  position: relative;
+}
+
+.nav__item.basket {
+  margin-left: 10px;
+}
+
+.quantity {
+  position: absolute;
+  inset: 5px 0px 6px -12px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: var(--success-color);
+  color: var(--bg-color-input);
+  z-index: 2;
+}
+
+.menu {
+  visibility: hidden;
+}
+
+.actions {
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 1280px) {
+  .container {
+    max-width: 1160px;
+  }
+
+  .nav__list {
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 800px) {
+  header {
+    padding: 1rem 0;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .menu,
+  .actions {
+    visibility: visible;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header__logo {
+    height: auto;
+  }
+
+  .header__img {
+    width: 125%;
+  }
+
+  .basket-img {
+    width: 20px;
+    height: 16px;
+  }
+
+  .phone-img {
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin-right: 15px;
+  }
+
+  .quantity {
+    position: absolute;
+    inset: 3px 0px 0px -9px;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background-color: var(--success-color);
+    color: var(--bg-color-input);
+    z-index: 2;
+    font-size: 0.8rem;
+  }
+}
