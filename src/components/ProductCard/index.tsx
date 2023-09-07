@@ -1,10 +1,10 @@
 import Button from "../Button";
-import styles from "./Card.module.css";
+import styles from "./ProductCard.module.css";
 import bulb from "../../assets/bulb.jpg";
 
 export interface IAppProps {}
 
-export default function Card(props: IAppProps) {
+export default function ProductCard(props: IAppProps) {
   return (
     <div className={styles.card}>
       <img src={bulb} alt="water" className={styles["card__img"]} />

@@ -7,6 +7,11 @@
   font-weight: 800;
   line-height: normal;
   text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.link:hover {
+  color: var(--h3-color-hover);
 }
 
 @media (max-width: 1280px) {

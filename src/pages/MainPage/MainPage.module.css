@@ -8,10 +8,10 @@
   max-width: 1450px;
   margin: 0 auto;
   position: relative;
-  padding: 15vh 0;
 }
 
-.row {
+.grid {
+  padding: 15vh 0;
   display: grid;
   grid-template-columns: 35% 52%;
   align-items: center;
@@ -51,6 +51,78 @@
   line-height: normal;
   margin-top: 20px;
   width: 15vw;
+  transition: all 0.3s;
+}
+
+.hero__btn:hover {
+  background: linear-gradient(270deg, #87e1ff 0%, #5ba7ff 100%);
+}
+
+.hero__btn:active {
+  transform: translateY(5px);
+}
+
+.shop {
+  background-color: var(--bg-color-light);
+  text-align: center;
+}
+
+.shop__header,
+.delivery__header {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.row {
+  padding: 4vh 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.delivery {
+  background-color: var(--bg-color-dark);
+  text-align: center;
+  padding: 4vh 0;
+}
+
+.card {
+  width: 65vw;
+  max-width: 220px;
+  height: 70vh;
+  max-height: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card__img {
+  width: 70%;
+  margin-bottom: 15px;
+}
+
+.card__title {
+  color: var(--bg-color-input);
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 18px;
+  font-style: normal;
+  margin-bottom: 15px;
+}
+
+.card__text {
+  color: var(--bg-color-input);
+  width: 70%;
+  font-weight: 300;
+  font-size: 0.75rem;
+  line-height: 15px;
+  text-align: center;
+  font-style: normal;
+  margin: 0 0 auto 0;
 }
 
 @media (max-width: 1280px) {
@@ -68,15 +140,15 @@
 @media (max-width: 800px) {
   .hero {
     height: 100svh;
+    padding-top: 10vh;
   }
 
   .container {
-    height: 100svh;
     width: 70%;
     padding: 0;
   }
 
-  .row {
+  .grid {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,5 +178,18 @@
 
   .hero__img {
     width: 100vw;
+  }
+
+  .hero__btn:active {
+    transform: translateY(0);
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 2vh;
+    padding: 4vh 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
   }
 }
