@@ -1,3 +1,4 @@
+import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { PathConstants } from "../../router/PageRoutes";
 import Footer from "../../components/Footer";
@@ -105,7 +106,18 @@ const composition: Composition[] = [
 export interface IAppProps {}
 
 export default function MainPage(props: IAppProps) {
+  const element = useRef<HTMLElement>(null);
+  const [visibleElement, setVisibleElement] = useState<boolean>(false);
   const mobileSize = useMediaQuery("(max-width: 800px)");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      setVisibleElement(entry.isIntersecting);
+    });
+
+    observer.observe(element.current as Element);
+  }, []);
 
   return (
     <>
@@ -178,7 +190,7 @@ export default function MainPage(props: IAppProps) {
           </div>
         </div>
       </section>
-      <section id="aboutwater" className={styles.about}>
+      <section id="aboutwater" className={styles.about} ref={element}>
         <h2 className={`${styles["about__header"]}  ${styles.blue}`}>
           про воду
         </h2>
