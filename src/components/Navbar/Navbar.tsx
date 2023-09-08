@@ -65,7 +65,7 @@ export default function Navbar(props: IAppProps) {
             className={`${styles["nav__list"]} ${styles["nav__list--secondary"]}`}
           >
             <li className={styles["nav__item"]}>
-              <a href="tel:+380672169654">
+              <a href="tel:+380689482864">
                 <img src={phone} alt="Direct contact" />
                 <span>068 948 28 64</span>
               </a>

@@ -82,8 +82,8 @@ export function ukrToEng(value: string) {
       return Anchors.Shop;
     case "доставка":
       return Anchors.Delivery;
-    case Anchors.AboutWater:
-      return "aboutwater";
+    case "про воду":
+      return Anchors.AboutWater;
     case "склад води":
       return Anchors.Composition;
     case "контакти":

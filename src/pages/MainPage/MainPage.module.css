@@ -65,6 +65,7 @@
 .shop {
   background-color: var(--bg-color-light);
   text-align: center;
+  padding: 4vh 0;
 }
 
 .shop__header,
@@ -88,7 +89,7 @@
 .delivery {
   background-color: var(--bg-color-dark);
   text-align: center;
-  padding: 4vh 0;
+  padding: 4vh 0 0;
 }
 
 .card {
@@ -125,6 +126,11 @@
   text-align: center;
   font-style: normal;
   margin: 0 0 auto 0;
+}
+
+.card__text-link {
+  text-decoration: none;
+  color: var(--h3-color-hover);
 }
 
 .about {
@@ -175,11 +181,12 @@
 .composition {
   background-color: var(--bg-color-light);
   text-align: center;
+  padding-bottom: 1px;
 }
 
 .composition__info {
   width: 50%;
-  max-width: 600px;
+  max-width: 500px;
   background-color: #fff;
   border-radius: 15px;
   margin: 3vh auto;
@@ -335,6 +342,10 @@
     border-radius: 0;
     width: 100%;
     transform: translate(0, 0);
+  }
+
+  .composition {
+    padding-top: 4vh;
   }
 
   .composition__info {

@@ -1,5 +1,4 @@
-import { Fragment } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { PathConstants } from "../../router/PageRoutes";
 import Footer from "../../components/Footer";
 import ProductCard from "../../components/ProductCard";
@@ -117,12 +116,9 @@ export default function MainPage(props: IAppProps) {
               доставка негазованої питної води
               <p className={styles.blue}>в кривому розі</p>
             </h1>
-            <NavLink
-              to={PathConstants.FAST_ORDER}
-              className={styles["hero__btn"]}
-            >
+            <Link to={PathConstants.FAST_ORDER} className={styles["hero__btn"]}>
               Замовити
-            </NavLink>
+            </Link>
           </div>
           <img src={hero} alt="Water" className={styles["hero__img"]} />
         </div>
@@ -144,7 +140,19 @@ export default function MainPage(props: IAppProps) {
           <div className={styles.card}>
             <img src={card1} alt="Order" className={styles["card__img"]} />
             <h2 className={styles["card__title"]}>Оформіть заявку</h2>
-            <p className={styles["card__text"]}>На сайті або за телефоном</p>
+            <p className={styles["card__text"]}>
+              На{" "}
+              <Link
+                to={PathConstants.FAST_ORDER}
+                className={styles["card__text-link"]}
+              >
+                сайті
+              </Link>{" "}
+              або за{" "}
+              <a href="tel:+380689482864" className={styles["card__text-link"]}>
+                телефоном
+              </a>
+            </p>
           </div>
           <div className={styles.card}>
             <img src={card2} alt="Contact" className={styles["card__img"]} />
@@ -170,7 +178,7 @@ export default function MainPage(props: IAppProps) {
           </div>
         </div>
       </section>
-      <section id="about" className={styles.about}>
+      <section id="aboutwater" className={styles.about}>
         <h2 className={`${styles["about__header"]}  ${styles.blue}`}>
           про воду
         </h2>
