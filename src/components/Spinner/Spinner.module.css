@@ -1,6 +1,7 @@
 .lds-heart {
   display: inline-block;
   position: relative;
+  z-index: 11;
   width: 80px;
   height: 80px;
   transform: rotate(45deg);

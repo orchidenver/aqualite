@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import { PathConstants } from "../../router/PageRoutes";
 import Footer from "../../components/Footer";
@@ -12,6 +13,95 @@ import card4 from "../../assets/card4.svg";
 import waterexample1 from "../../assets/waterexample1.jpg";
 import waterexample2 from "../../assets/waterexample2.jpg";
 import waterexample3 from "../../assets/waterexample3.jpg";
+import sertificate from "../../assets/sertificate.jpg";
+
+interface Composition {
+  element: string;
+  amount: {
+    quantity: string;
+    measure: string;
+  };
+}
+
+const composition: Composition[] = [
+  {
+    element: "Загальна жорсткість",
+    amount: {
+      quantity: "1.0 - 1.3",
+      measure: "ммоль/дм³",
+    },
+  },
+  {
+    element: "Загальна лужність",
+    amount: {
+      quantity: "1.1 - 1.3",
+      measure: "ммоль/дм³",
+    },
+  },
+  {
+    element: "Калій",
+    amount: {
+      quantity: "1,0 — 1,2",
+      measure: "мг/дм³",
+    },
+  },
+  {
+    element: "Кальций",
+    amount: {
+      quantity: "13,0 — 15,0",
+      measure: "мг/дм³",
+    },
+  },
+  {
+    element: "Магній",
+    amount: {
+      quantity: "5,0 — 7,0",
+      measure: "мг/дм³",
+    },
+  },
+  {
+    element: "Натрій",
+    amount: {
+      quantity: "2,0 — 3,0",
+      measure: "мг/дм³",
+    },
+  },
+  {
+    element: "Сухий залишок",
+    amount: {
+      quantity: "40,0 — 45,0",
+      measure: "мг/дм³",
+    },
+  },
+  {
+    element: "Фториди",
+    amount: {
+      quantity: "0,07",
+      measure: "мг/дм³",
+    },
+  },
+  {
+    element: "Сульфати",
+    amount: {
+      quantity: "5,0 — 15,0",
+      measure: "мг/дм³",
+    },
+  },
+  {
+    element: "Хлориди",
+    amount: {
+      quantity: "5,0 — 6,0",
+      measure: "мг/дм³",
+    },
+  },
+  {
+    element: "Гідрокарбонат-іони",
+    amount: {
+      quantity: "100,0 — 105,0",
+      measure: "мг/дм³",
+    },
+  },
+];
 
 export interface IAppProps {}
 
@@ -134,6 +224,45 @@ export default function MainPage(props: IAppProps) {
               на латинице с начала XVI века. Lorem Ipsum - это текст-"рыба",
               часто используемый в печати и вэб-дизайне. Lorem Ipsum является
               стандартной "рыбой" для текстов на латинице с начала XVI века.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="composition" className={styles.composition}>
+        <div className={`${styles.container} ${mobileSize ? styles.full : ""}`}>
+          <h2 className={`${styles["composition__header"]}  ${styles.blue}`}>
+            склад води
+          </h2>
+          <div className={styles["composition__info"]}>
+            <h3 className={styles["composition__subheader"]}>склад води</h3>
+            <div className={styles["composition__elements"]}>
+              {composition.map((el: Composition, i: number) => (
+                <div
+                  className={styles["elements__container"]}
+                  key={el.element + i}
+                >
+                  <span className={styles.element}>{el.element}</span>
+                  <div className={styles.details}>
+                    <span className={styles.quantity}>
+                      {el.amount.quantity}
+                    </span>
+                    <span className={styles.measure}>{el.amount.measure}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={styles["composition__sertificate"]}>
+            <a href="#">
+              <img
+                src={sertificate}
+                alt="Sertificate"
+                className={styles["composition__img"]}
+              />
+            </a>
+            <p className={styles["composition__text"]}>
+              Вода сертифікована Державною службою України з питань безпечності
+              харчових продуктів та захисту споживачів.
             </p>
           </div>
         </div>

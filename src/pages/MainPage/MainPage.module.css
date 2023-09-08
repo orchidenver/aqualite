@@ -69,7 +69,8 @@
 
 .shop__header,
 .delivery__header,
-.about__header {
+.about__header,
+.composition__header {
   text-transform: uppercase;
   font-size: 2rem;
   font-style: normal;
@@ -171,6 +172,79 @@
   margin: 0;
 }
 
+.composition {
+  background-color: var(--bg-color-light);
+  text-align: center;
+}
+
+.composition__info {
+  width: 50%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 15px;
+  margin: 3vh auto;
+  padding: 2vh;
+}
+
+.composition__subheader {
+  text-transform: uppercase;
+  color: var(--text-color);
+  text-align: left;
+  margin-bottom: 2vh;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.elements__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.elements__container + .elements__container {
+  margin-top: 5px;
+}
+
+.details {
+  display: flex;
+  gap: 10px;
+  color: var(--text-color);
+}
+
+.quantity {
+  color: var(--h3-color);
+}
+
+.measure {
+  color: var(--gray-color);
+}
+
+.composition__sertificate {
+  display: flex;
+  width: 50%;
+  max-width: 600px;
+  align-items: center;
+  justify-content: center;
+  margin: 2vh auto;
+  gap: 2vw;
+}
+
+.composition__img {
+  width: 15vw;
+  border-radius: 15px;
+  box-shadow: 0px 3.2px 8px 0px rgba(16, 69, 141, 0.25);
+}
+
+.composition__text {
+  color: var(--text-color);
+  text-align: left;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 300;
+}
+
 @media (max-width: 1280px) {
   .container {
     max-width: 1160px;
@@ -261,5 +335,40 @@
     border-radius: 0;
     width: 100%;
     transform: translate(0, 0);
+  }
+
+  .composition__info {
+    background-color: #fff;
+    width: 90%;
+    margin: 3vh auto;
+    padding: 2vh;
+  }
+
+  .composition__subheader {
+    display: none;
+  }
+
+  .elements__container {
+    line-height: 1;
+    font-size: 15px;
+  }
+
+  .details {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0px;
+  }
+
+  .composition__sertificate {
+    flex-direction: column;
+    width: 60%;
+  }
+
+  .composition__img {
+    width: 100%;
+  }
+
+  .composition__text {
+    margin: 2vh 0;
   }
 }
