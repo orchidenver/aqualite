@@ -1,0 +1,108 @@
+.mandatory-textfield {
+  display: flex;
+}
+
+.input-container {
+  width: 100%;
+}
+
+.mandatory-textfield label,
+label {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex-grow: 1;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--h3-color);
+}
+
+input {
+  height: 3.5rem;
+  border: 1px solid transparent;
+  border-radius: 35px;
+  background-color: #edf6ff;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--text-color);
+  outline: none;
+  margin: 0.25rem;
+}
+
+input:focus {
+  border: 2px solid var(--text-color);
+}
+
+.error-input {
+  border: 2px solid var(--alert-color);
+}
+
+.flex-row {
+  display: flex;
+}
+
+.flex-row .optional-textfield {
+  width: calc(33% + 1px);
+}
+
+.mandatory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  color: var(--h3-color);
+}
+
+.error-message {
+  color: var(--alert-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem;
+  height: 1rem;
+  font-size: 0.75rem;
+}
+
+.error-asterisk {
+  color: var(--alert-color);
+}
+
+.submit-btn {
+  width: 50%;
+  max-width: 500px;
+  display: block;
+  margin: 3vh auto 0;
+  background: linear-gradient(270deg, #39ceff 0%, #5ba7ff 100%);
+  color: #fff;
+  text-decoration: none;
+  padding: 1rem 0;
+  border-radius: 100px;
+  text-align: center;
+  font-family: Mulish;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(270deg, #87e1ff 0%, #5ba7ff 100%);
+}
+
+.submit-btn:active {
+  transform: translateY(5px);
+}
+
+@media (max-width: 800px) {
+  .submit-btn {
+    width: 90%;
+  }
+}

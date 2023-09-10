@@ -12,6 +12,7 @@ import {
   sendNotification,
 } from "../../utils";
 import { NameSchema, PhoneSchema, FormSchema } from "../../schemas";
+import styles from "./Form.module.css";
 
 const TG_TOKEN = import.meta.env.VITE_TG_TOKEN;
 const CHAT_ID = import.meta.env.VITE_TG_USER_ID;
@@ -32,21 +33,32 @@ function MandatoryTextField({ inputId }: { inputId: string }) {
   const { label, placeholder } = useDescription();
 
   return (
-    <div className="mandatory-textfield">
-      <span>*</span>
-      <label htmlFor={inputId}>
-        {label}
-        <input
-          id={inputId}
-          type="text"
-          value={value ? value : ""}
-          placeholder={placeholder}
-          onChange={(e) => {
-            onChange(e.target.value);
-          }}
-        />
-      </label>
-      {error?.errorMessage && <span>{error?.errorMessage}</span>}
+    <div className={styles["mandatory-textfield"]}>
+      <span
+        className={`${styles.mandatory} ${
+          error?.errorMessage && styles["error-asterisk"]
+        }`}
+      >
+        *
+      </span>
+      <div className={styles["input-container"]}>
+        <label htmlFor={inputId}>
+          {label}
+          <input
+            id={inputId}
+            type="text"
+            value={value ? value : ""}
+            placeholder={placeholder}
+            onChange={(e) => {
+              onChange(e.target.value);
+            }}
+            className={`${error?.errorMessage && styles["error-input"]}`}
+          />
+        </label>
+        <span className={styles["error-message"]}>
+          {error?.errorMessage && error?.errorMessage}
+        </span>
+      </div>
     </div>
   );
 }
@@ -59,7 +71,9 @@ function TextField({ inputId }: { inputId: string }) {
   const { label, placeholder } = useDescription();
 
   return (
-    <>
+    <div
+      className={`${styles["input-container"]} ${styles["optional-textfield"]}`}
+    >
       <label htmlFor={inputId}>
         {label}
         <input
@@ -70,10 +84,13 @@ function TextField({ inputId }: { inputId: string }) {
           onChange={(e) => {
             onChange(e.target.value);
           }}
+          className={`${error?.errorMessage && styles["error-input"]}`}
         />
       </label>
-      {error?.errorMessage && <span>{error?.errorMessage}</span>}
-    </>
+      <span className={styles["error-message"]}>
+        {error?.errorMessage && error?.errorMessage}
+      </span>
+    </div>
   );
 }
 
@@ -83,7 +100,13 @@ export default function Form() {
       onSubmit={(data) => {
         sendNotification(JSON.stringify(data), CHAT_ID, TG_TOKEN);
       }}
-      renderAfter={() => <input type="submit" value="Відправити" />}
+      renderAfter={() => (
+        <input
+          type="submit"
+          value="Підтвердити"
+          className={styles["submit-btn"]}
+        />
+      )}
       schema={FormSchema}
       defaultValues={{
         name: getCookie("name"),
@@ -120,7 +143,7 @@ export default function Form() {
             {name}
             {phone}
             {street}
-            <div className="flex-row">
+            <div className={styles["flex-row"]}>
               {building}
               {porch}
               {flat}

@@ -1,7 +1,7 @@
 header {
   position: sticky;
   top: 0;
-  width: 100vw;
+  /* width: 100vw; */
   text-align: center;
   padding: 2rem 0;
   height: 10vh;
@@ -13,6 +13,10 @@ header {
 
 .header-bg {
   background-color: rgba(255, 255, 255, 0.8);
+}
+
+.white {
+  background-color: #fff;
 }
 
 .header__logo {

@@ -11,7 +11,7 @@
 }
 
 .grid {
-  padding: 15vh 0;
+  padding: 5vh 0;
   display: grid;
   grid-template-columns: 35% 52%;
   align-items: center;
