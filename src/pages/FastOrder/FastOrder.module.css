@@ -1,0 +1,45 @@
+.fast-order {
+  height: 100svh;
+  background-color: var(--bg-color-dark);
+}
+
+.nav {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.nav a {
+  align-self: flex-end;
+  position: absolute;
+  right: 3vh;
+  top: 3vh;
+  width: 30px;
+  height: 30px;
+  background-color: #366490fe;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fast-order__header {
+  text-transform: uppercase;
+  text-align: center;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  color: var(--h3-color);
+  margin-bottom: 2vh;
+}
+
+.fast-order__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 80vh;
+}

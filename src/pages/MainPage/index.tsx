@@ -128,7 +128,7 @@ export default function MainPage(props: IAppProps) {
               доставка негазованої питної води
               <p className={styles.blue}>в кривому розі</p>
             </h1>
-            <Link to={PathConstants.FAST_ORDER} className={styles["hero__btn"]}>
+            <Link to={PathConstants.FORM} className={styles["hero__btn"]}>
               Замовити
             </Link>
           </div>
@@ -155,7 +155,7 @@ export default function MainPage(props: IAppProps) {
             <p className={styles["card__text"]}>
               На{" "}
               <Link
-                to={PathConstants.FAST_ORDER}
+                to={PathConstants.FORM}
                 className={styles["card__text-link"]}
               >
                 сайті
@@ -287,7 +287,6 @@ export default function MainPage(props: IAppProps) {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 }

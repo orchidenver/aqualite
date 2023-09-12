@@ -13,7 +13,6 @@ const Error = lazy(() => import("../pages/Page404"));
 
 const routes = [
   { path: PathConstants.CART, element: <Cart /> },
-  { path: PathConstants.FAST_ORDER, element: <Order /> },
   { path: PathConstants.FEEDBACK, element: <Feedback /> },
   { path: PathConstants.FORM, element: <Form /> },
   { path: PathConstants.MAIN_PAGE, element: <Main /> },
@@ -21,6 +20,14 @@ const routes = [
 
 export const router = createBrowserRouter([
   { element: <Layout />, children: routes },
+  {
+    path: PathConstants.FAST_ORDER,
+    element: (
+      <Suspense fallback={<Preloader />}>
+        <Order />
+      </Suspense>
+    ),
+  },
   {
     path: PathConstants.PAGE404,
     element: (
