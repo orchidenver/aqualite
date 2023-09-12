@@ -21,7 +21,9 @@ export default function Navbar(props: IAppProps) {
   return (
     <header
       className={`${
-        (location.pathname === "/form" || location.pathname === "/cart") &&
+        (location.pathname === "/form" ||
+          location.pathname === "/cart" ||
+          location.pathname === "/feedback") &&
         styles.white
       }`}
     >
