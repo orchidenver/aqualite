@@ -32,6 +32,14 @@
   outline: none;
 }
 
+.button:hover {
+  background: linear-gradient(270deg, #87e1ff 0%, #5ba7ff 100%);
+}
+
+.button:active {
+  transform: translateY(5px);
+}
+
 .light,
 .light:enabled:active,
 .light:focus {

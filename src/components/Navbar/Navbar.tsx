@@ -1,5 +1,7 @@
 import { useState } from "react";
 import LinkComponent from "../LinkComponent";
+import MobileMenu from "../MobileMenu";
+import useMediaQuery from "../../hooks/useMediaQuery";
 import { Anchors } from "../../typings";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
@@ -7,15 +9,22 @@ import logo from "../../assets/logo-blue.svg";
 import phone from "../../assets/phone_icon.svg";
 import basket from "../../assets/basket_icon.svg";
 import burgermenu from "../../assets/burgermenu.svg";
+import { PathConstants } from "../../router/PageRoutes";
 
 export interface IAppProps {}
 
 export default function Navbar(props: IAppProps) {
   const [selectedSection, setSelectedSection] = useState<Anchors>(Anchors.Hero);
   const location = useLocation();
+  const mobileSize = useMediaQuery("(max-width: 800px)");
 
   return (
-    <header className={`${location.pathname === "/form" && styles.white}`}>
+    <header
+      className={`${
+        (location.pathname === "/form" || location.pathname === "/cart") &&
+        styles.white
+      }`}
+    >
       <div className={`${styles.container} ${styles.row}`}>
         <a className={styles.menu}>
           <img src={burgermenu} alt="Mobile menu" />
@@ -73,8 +82,10 @@ export default function Navbar(props: IAppProps) {
               </a>
             </li>
             <li className={`${styles["nav__item"]} ${styles.basket}`}>
-              <img src={basket} alt="Basket" />
-              <span className={styles.quantity}>0</span>
+              <Link to={PathConstants.CART}>
+                <img src={basket} alt="Basket" />
+                <span className={styles.quantity}>0</span>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -85,11 +96,14 @@ export default function Navbar(props: IAppProps) {
             className={styles["phone-img"]}
           />
           <div className={`${styles["nav__item"]} ${styles.basket}`}>
-            <img src={basket} alt="Basket" className={styles["basket-img"]} />
-            <span className={styles.quantity}>0</span>
+            <Link to={PathConstants.CART}>
+              <img src={basket} alt="Basket" className={styles["basket-img"]} />
+              <span className={styles.quantity}>0</span>
+            </Link>
           </div>
         </div>
       </div>
+      {mobileSize && <MobileMenu />}
     </header>
   );
 }

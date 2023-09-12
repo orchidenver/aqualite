@@ -1,21 +1,20 @@
 import Form from "../../components/Form";
-import Footer from "../../components/Footer";
+import TransparentButton from "../../components/TransparentButton";
 import styles from "./FormPage.module.css";
-import { Link } from "react-router-dom";
 import { PathConstants } from "../../router/PageRoutes";
 
 export default function FormPage() {
   return (
     <>
-      {/* <section className={styles["user-data"]}>
+      <section className={styles["user-data"]}>
         <div className={styles.container}>
           <h3 className={styles["user-data__title"]}>
             вкажіть інформацію для доставки
           </h3>
           <Form />
         </div>
-      </section> */}
-      <section className={styles.success}>
+      </section>
+      {/* <section className={styles.success}>
         <div className={styles.container}>
           <h3 className={styles["success__header"]}>
             Ваше замовлення прийнято!
@@ -23,15 +22,11 @@ export default function FormPage() {
           <p className={styles["success__text"]}>
             Найближчим часом ми зв’яжемося з Вами для його підтвердження.
           </p>
-          <Link
-            to={PathConstants.FAST_ORDER}
-            className={styles["success__btn"]}
-          >
+          <TransparentButton reference={PathConstants.FAST_ORDER}>
             Замовити ще
-          </Link>
+          </TransparentButton>
         </div>
-      </section>
-      <Footer />
+      </section> */}
     </>
   );
 }

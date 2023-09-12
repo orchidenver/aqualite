@@ -90,7 +90,7 @@ header {
 
 .quantity {
   position: absolute;
-  inset: 5px 0px 6px -12px;
+  inset: 5px 0px 6px -2px;
   width: 25px;
   border-radius: 50%;
   background-color: var(--success-color);
@@ -139,10 +139,15 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: sticky;
+    z-index: 7;
   }
 
   .header__logo {
     height: auto;
+    position: sticky;
+    z-index: 7;
+    margin-left: 20px;
   }
 
   .header__img {
@@ -159,6 +164,13 @@ header {
     height: 20px;
     display: block;
     margin-right: 15px;
+    position: sticky;
+    z-index: 7;
+  }
+
+  .basket {
+    position: sticky;
+    z-index: 7;
   }
 
   .quantity {
