@@ -1,17 +1,7 @@
-import { object, z } from "zod";
-import {
-  createTsForm,
-  createUniqueFieldSchema,
-  useDescription,
-  useTsController,
-} from "@ts-react/form";
-import {
-  capitalize,
-  setCookie,
-  getCookie,
-  sendNotification,
-} from "../../utils";
+import { getCookie, sendNotification } from "../../utils";
 import { NameSchema, PhoneSchema, FormSchema } from "../../schemas";
+import { z } from "zod";
+import { createTsForm, useDescription, useTsController } from "@ts-react/form";
 import styles from "./Form.module.css";
 
 const TG_TOKEN = import.meta.env.VITE_TG_TOKEN;

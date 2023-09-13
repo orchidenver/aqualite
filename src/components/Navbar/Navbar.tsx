@@ -1,32 +1,27 @@
 import { useState } from "react";
 import LinkComponent from "../LinkComponent";
 import MobileMenu from "../MobileMenu";
-import useMediaQuery from "../../hooks/useMediaQuery";
 import { Anchors } from "../../typings";
+import { PathConstants } from "../../router/PageRoutes";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/logo-blue.svg";
 import phone from "../../assets/phone_icon.svg";
 import basket from "../../assets/basket_icon.svg";
 import burgermenu from "../../assets/burgermenu.svg";
-import { PathConstants } from "../../router/PageRoutes";
 
-export interface IAppProps {}
-
-export default function Navbar(props: IAppProps) {
+export default function Navbar() {
   const [selectedSection, setSelectedSection] = useState<Anchors>(Anchors.Hero);
   const location = useLocation();
   const mobileSize = useMediaQuery("(max-width: 800px)");
+  const doesBackgroundNeedToBeWhite =
+    location.pathname === "/form" ||
+    location.pathname === "/cart" ||
+    location.pathname === "/feedback";
 
   return (
-    <header
-      className={`${
-        (location.pathname === "/form" ||
-          location.pathname === "/cart" ||
-          location.pathname === "/feedback") &&
-        styles.white
-      }`}
-    >
+    <header className={`${doesBackgroundNeedToBeWhite && styles.white}`}>
       <div className={`${styles.container} ${styles.row}`}>
         <a className={styles.menu}>
           <img src={burgermenu} alt="Mobile menu" />

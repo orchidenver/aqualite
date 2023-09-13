@@ -1,15 +1,11 @@
+import { ButtonInterface } from "../../typings";
 import { useLocation, Link } from "react-router-dom";
 import styles from "./Button.module.css";
-
-export interface ButtonInterface {
-  width?: string;
-  height?: string;
-}
 
 export default function Button({ width, height }: ButtonInterface) {
   const location = useLocation();
 
-  return location.pathname === "/order" ? (
+  return location.pathname === "/order" || location.pathname === "/cart" ? (
     <Link
       to="/form"
       className={`${styles.button}`}

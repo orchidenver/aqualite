@@ -1,4 +1,3 @@
-import * as React from "react";
 import Counter from "../../components/Counter";
 import TransparentButton from "../../components/TransparentButton";
 import Button from "../../components/Button";
@@ -7,9 +6,7 @@ import { PathConstants } from "../../router/PageRoutes";
 import bulb from "../../assets/bulb.svg";
 import styles from "./CartPage.module.css";
 
-export interface IAppProps {}
-
-export default function CartPage(props: IAppProps) {
+export default function CartPage() {
   return (
     <aside className={styles.cart}>
       <h3 className={styles["cart__header"]}>корзина</h3>

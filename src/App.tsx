@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { RouterProvider } from "react-router-dom";
 import { router } from "./router/PageMapping";
 import Preloader from "./components/Preloader";
+import { RouterProvider } from "react-router-dom";
 
 function App() {
   const [load, setLoad] = useState<boolean>(false);

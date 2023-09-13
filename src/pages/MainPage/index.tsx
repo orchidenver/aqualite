@@ -1,9 +1,10 @@
 import { useRef, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { PathConstants } from "../../router/PageRoutes";
-import Footer from "../../components/Footer";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
+import { Composition } from "../../typings";
+import { COMPOSITION } from "../../utils";
 import ProductCard from "../../components/ProductCard";
-import useMediaQuery from "../../hooks/useMediaQuery";
+import { Link } from "react-router-dom";
 import styles from "./MainPage.module.css";
 import hero from "../../assets/hero.svg";
 import card1 from "../../assets/card1.svg";
@@ -15,97 +16,7 @@ import waterexample2 from "../../assets/waterexample2.jpg";
 import waterexample3 from "../../assets/waterexample3.jpg";
 import sertificate from "../../assets/sertificate.jpg";
 
-interface Composition {
-  element: string;
-  amount: {
-    quantity: string;
-    measure: string;
-  };
-}
-
-const composition: Composition[] = [
-  {
-    element: "Загальна жорсткість",
-    amount: {
-      quantity: "1.0 - 1.3",
-      measure: "ммоль/дм³",
-    },
-  },
-  {
-    element: "Загальна лужність",
-    amount: {
-      quantity: "1.1 - 1.3",
-      measure: "ммоль/дм³",
-    },
-  },
-  {
-    element: "Калій",
-    amount: {
-      quantity: "1,0 — 1,2",
-      measure: "мг/дм³",
-    },
-  },
-  {
-    element: "Кальций",
-    amount: {
-      quantity: "13,0 — 15,0",
-      measure: "мг/дм³",
-    },
-  },
-  {
-    element: "Магній",
-    amount: {
-      quantity: "5,0 — 7,0",
-      measure: "мг/дм³",
-    },
-  },
-  {
-    element: "Натрій",
-    amount: {
-      quantity: "2,0 — 3,0",
-      measure: "мг/дм³",
-    },
-  },
-  {
-    element: "Сухий залишок",
-    amount: {
-      quantity: "40,0 — 45,0",
-      measure: "мг/дм³",
-    },
-  },
-  {
-    element: "Фториди",
-    amount: {
-      quantity: "0,07",
-      measure: "мг/дм³",
-    },
-  },
-  {
-    element: "Сульфати",
-    amount: {
-      quantity: "5,0 — 15,0",
-      measure: "мг/дм³",
-    },
-  },
-  {
-    element: "Хлориди",
-    amount: {
-      quantity: "5,0 — 6,0",
-      measure: "мг/дм³",
-    },
-  },
-  {
-    element: "Гідрокарбонат-іони",
-    amount: {
-      quantity: "100,0 — 105,0",
-      measure: "мг/дм³",
-    },
-  },
-];
-
-export interface IAppProps {}
-
-export default function MainPage(props: IAppProps) {
+export default function MainPage() {
   const element = useRef<HTMLElement>(null);
   const [visibleElement, setVisibleElement] = useState<boolean>(false);
   const mobileSize = useMediaQuery("(max-width: 800px)");
@@ -256,7 +167,7 @@ export default function MainPage(props: IAppProps) {
           <div className={styles["composition__info"]}>
             <h3 className={styles["composition__subheader"]}>склад води</h3>
             <div className={styles["composition__elements"]}>
-              {composition.map((el: Composition, i: number) => (
+              {COMPOSITION.map((el: Composition, i: number) => (
                 <div
                   className={styles["elements__container"]}
                   key={el.element + i}

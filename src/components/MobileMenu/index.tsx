@@ -1,11 +1,8 @@
-import * as React from "react";
 import TransparentButton from "../TransparentButton";
-import styles from "./MobileMenu.module.css";
 import { PathConstants } from "../../router/PageRoutes";
+import styles from "./MobileMenu.module.css";
 
-export interface IAppProps {}
-
-export default function MobileMenu(props: IAppProps) {
+export default function MobileMenu() {
   return (
     <aside className={styles.sidebar}>
       <nav className={styles["sidebar__nav"]}>

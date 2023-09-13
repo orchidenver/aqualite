@@ -1,9 +1,7 @@
 import styles from "./Preloader.module.css";
 import logo from "../../assets/logo-white.svg";
 
-export interface IAppProps {}
-
-export default function Preloader(props: IAppProps) {
+export default function Preloader() {
   return (
     <aside className={styles.preloader}>
       <img

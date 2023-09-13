@@ -1,5 +1,5 @@
 import { LinkComponentInterface, Anchors } from "../../typings";
-import { ukrToEng } from "../../utils";
+import { useTranslationFromUkrtoEng } from "../../hooks/useMediaQuery";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import styles from "./LinkComponent.module.css";
 
@@ -8,7 +8,7 @@ export default function LinkComponent({
   selectedSection,
   setSelectedSection,
 }: LinkComponentInterface) {
-  const lowercaseSection = ukrToEng(section) as Anchors;
+  const lowercaseSection = useTranslationFromUkrtoEng(section) as Anchors;
   return (
     <AnchorLink
       className={`${

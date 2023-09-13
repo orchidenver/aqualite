@@ -1,4 +1,3 @@
-import * as React from "react";
 import styles from "./Footer.module.css";
 import phone from "../../assets/phone_icon.svg";
 import mail from "../../assets/mail_icon.svg";
@@ -8,9 +7,7 @@ import viber from "../../assets/viber_icon.svg";
 import fb from "../../assets/fb_icon.svg";
 import logo from "../../assets/logo-blue.svg";
 
-export interface IAppProps {}
-
-export default function Footer(props: IAppProps) {
+export default function Footer() {
   return (
     <footer id="contacts" className={styles.contacts}>
       <h3 className={styles["contacts__header"]}>контакти</h3>

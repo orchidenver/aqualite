@@ -1,5 +1,5 @@
 import { createUniqueFieldSchema } from "@ts-react/form";
-import { object, z } from "zod";
+import { z } from "zod";
 
 export const NameSchema = createUniqueFieldSchema(
   z

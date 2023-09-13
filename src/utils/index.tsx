@@ -1,4 +1,84 @@
-import { JSONValue, Anchors } from "../typings";
+import { JSONValue, Composition } from "../typings";
+
+export const COMPOSITION: Composition[] = [
+  {
+    element: "Загальна жорсткість",
+    amount: {
+      quantity: "1.0 - 1.3",
+      measure: "ммоль/дм³",
+    },
+  },
+  {
+    element: "Загальна лужність",
+    amount: {
+      quantity: "1.1 - 1.3",
+      measure: "ммоль/дм³",
+    },
+  },
+  {
+    element: "Калій",
+    amount: {
+      quantity: "1,0 — 1,2",
+      measure: "мг/дм³",
+    },
+  },
+  {
+    element: "Кальций",
+    amount: {
+      quantity: "13,0 — 15,0",
+      measure: "мг/дм³",
+    },
+  },
+  {
+    element: "Магній",
+    amount: {
+      quantity: "5,0 — 7,0",
+      measure: "мг/дм³",
+    },
+  },
+  {
+    element: "Натрій",
+    amount: {
+      quantity: "2,0 — 3,0",
+      measure: "мг/дм³",
+    },
+  },
+  {
+    element: "Сухий залишок",
+    amount: {
+      quantity: "40,0 — 45,0",
+      measure: "мг/дм³",
+    },
+  },
+  {
+    element: "Фториди",
+    amount: {
+      quantity: "0,07",
+      measure: "мг/дм³",
+    },
+  },
+  {
+    element: "Сульфати",
+    amount: {
+      quantity: "5,0 — 15,0",
+      measure: "мг/дм³",
+    },
+  },
+  {
+    element: "Хлориди",
+    amount: {
+      quantity: "5,0 — 6,0",
+      measure: "мг/дм³",
+    },
+  },
+  {
+    element: "Гідрокарбонат-іони",
+    amount: {
+      quantity: "100,0 — 105,0",
+      measure: "мг/дм³",
+    },
+  },
+];
 
 const makePostRequest = (url: string, data: JSONValue) => {
   return fetch(url, {
@@ -59,7 +139,7 @@ export const sendNotification = async (
     setCookie(entry[0], entry[1], { maxAge: 1209600, secure: "secure" })
   );
 
-  const data = `
+  const DATA = `
     НОВЕ ЗАМОВЛЕННЯ \n
     Клієнт: ${capitalize(order.name)} \n
     Контакт: ${order.phone} \n
@@ -71,24 +151,7 @@ export const sendNotification = async (
 
   const endpoint = `https://api.telegram.org/bot${token}/sendMessage`;
   await makePostRequest(endpoint, {
-    text: data,
+    text: DATA,
     chat_id: id,
   });
 };
-
-export function ukrToEng(value: string) {
-  switch (value) {
-    case "магазин":
-      return Anchors.Shop;
-    case "доставка":
-      return Anchors.Delivery;
-    case "про воду":
-      return Anchors.AboutWater;
-    case "склад води":
-      return Anchors.Composition;
-    case "контакти":
-      return Anchors.Contacts;
-    default:
-      Anchors.Hero;
-  }
-}

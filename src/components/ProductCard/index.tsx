@@ -1,21 +1,20 @@
-import useMediaQuery from "../../hooks/useMediaQuery";
-
 import Button from "../Button";
 import Counter from "../Counter";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 import styles from "./ProductCard.module.css";
 import bulb from "../../assets/bulb.svg";
 
 export default function ProductCard() {
   const largeMobileSize = useMediaQuery("(min-width: 376px)");
   const mobileSize = useMediaQuery("(max-width: 800px)");
-  const stylingSize = largeMobileSize && mobileSize;
+  const cardStylingSize = largeMobileSize && mobileSize;
 
   return (
     <div
       className={styles.card}
       style={{
-        maxWidth: stylingSize ? "65vw" : "220px",
-        maxHeight: stylingSize ? "50vh" : "340px",
+        maxWidth: cardStylingSize ? "65vw" : "220px",
+        maxHeight: cardStylingSize ? "50vh" : "340px",
       }}
     >
       <img

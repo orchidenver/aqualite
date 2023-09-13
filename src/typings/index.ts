@@ -19,3 +19,24 @@ export interface LinkComponentInterface {
   selectedSection: Anchors;
   setSelectedSection: (value: Anchors) => void;
 }
+
+export interface ButtonInterface {
+  width?: string;
+  height?: string;
+}
+
+export interface TransparentButtonInterface {
+  reference: string;
+  children: string;
+  width?: string;
+  margin?: string;
+  color?: string;
+}
+
+export interface Composition {
+  element: string;
+  amount: {
+    quantity: string;
+    measure: string;
+  };
+}

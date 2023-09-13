@@ -1,4 +1,3 @@
-import * as React from "react";
 import ProductCard from "../../components/ProductCard";
 import TransparentButton from "../../components/TransparentButton";
 

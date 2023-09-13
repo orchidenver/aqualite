@@ -1,7 +1,5 @@
 import Form from "../../components/Form";
-import TransparentButton from "../../components/TransparentButton";
 import styles from "./FormPage.module.css";
-import { PathConstants } from "../../router/PageRoutes";
 
 export default function FormPage() {
   return (
