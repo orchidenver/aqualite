@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { router } from "./router/PageMapping";
 import Preloader from "./components/Preloader";
+import { CartProvider } from "./context";
 import { RouterProvider } from "react-router-dom";
 
 function App() {
@@ -17,6 +18,10 @@ function App() {
     });
   }, []);
 
-  return <>{load ? <Preloader /> : <RouterProvider router={router} />}</>;
+  return (
+    <CartProvider>
+      {load ? <Preloader /> : <RouterProvider router={router} />}
+    </CartProvider>
+  );
 }
 export default App;

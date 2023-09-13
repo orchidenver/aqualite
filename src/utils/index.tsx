@@ -1,4 +1,4 @@
-import { JSONValue, Composition } from "../typings";
+import { JSONValue, Composition, ProductNames } from "../typings";
 
 export const COMPOSITION: Composition[] = [
   {
@@ -80,6 +80,13 @@ export const COMPOSITION: Composition[] = [
   },
 ];
 
+export const PRICES = {
+  bulb: 160,
+  set: 420,
+  pomp: 150,
+  dispenser: 150,
+};
+
 const makePostRequest = (url: string, data: JSONValue) => {
   return fetch(url, {
     method: "POST",
@@ -155,3 +162,16 @@ export const sendNotification = async (
     chat_id: id,
   });
 };
+
+export function findPrice(product: ProductNames) {
+  switch (product) {
+    case "bulb":
+      return PRICES.bulb;
+    case "set":
+      return PRICES.set;
+    case "pomp":
+      return PRICES.pomp;
+    case "dispenser":
+      return PRICES.dispenser;
+  }
+}
