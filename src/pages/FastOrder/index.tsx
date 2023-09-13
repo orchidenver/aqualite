@@ -5,9 +5,7 @@ import styles from "./FastOrder.module.css";
 import logo from "../../assets/logo-white.svg";
 import phone from "../../assets/phone_icon.svg";
 
-export interface IAppProps {}
-
-export default function FastOrder(props: IAppProps) {
+export default function FastOrder() {
   return (
     <section className={styles["fast-order"]}>
       <nav className={styles.nav}>

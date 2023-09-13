@@ -20,6 +20,7 @@ export default function MainPage() {
   const element = useRef<HTMLElement>(null);
   const [visibleElement, setVisibleElement] = useState<boolean>(false);
   const mobileSize = useMediaQuery("(max-width: 800px)");
+  console.log(visibleElement);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
