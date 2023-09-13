@@ -1,7 +1,7 @@
 import Counter from "../../components/Counter";
-import TransparentButton from "../../components/TransparentButton";
+// import TransparentButton from "../../components/TransparentButton";
 import Button from "../../components/Button";
-import { PathConstants } from "../../router/PageRoutes";
+// import { PathConstants } from "../../router/PageRoutes";
 
 import bulb from "../../assets/bulb.svg";
 import styles from "./CartPage.module.css";
