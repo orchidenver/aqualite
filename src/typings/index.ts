@@ -1,5 +1,3 @@
-import ProductCard from "../components/ProductCard";
-
 export type JSONValue =
   | string
   | number
@@ -68,7 +66,7 @@ export interface InitialContextState {
 export interface InitialContext extends InitialContextState {
   addItem: ({ id, name, amount, sum }: Product) => void;
   removeItem: (id: number) => void;
-  changeAmount: (id: number, value: number) => void;
+  changeAmount: (id: number, value: string) => void;
   clearCart: () => void;
 }
 

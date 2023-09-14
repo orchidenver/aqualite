@@ -1,4 +1,3 @@
-import ProductCard from "../../components/ProductCard";
 import TransparentButton from "../../components/TransparentButton";
 
 import styles from "./FastOrder.module.css";
@@ -16,7 +15,6 @@ export default function FastOrder() {
       </nav>
       <h3 className={styles["fast-order__header"]}>швидке замовлення</h3>
       <div className={styles["fast-order__content"]}>
-        <ProductCard />
         <div className={styles.action}>
           <TransparentButton reference="/" color="#FFF">
             Перейти на сайт
