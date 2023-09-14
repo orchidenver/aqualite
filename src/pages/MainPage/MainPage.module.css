@@ -267,7 +267,7 @@
 @media (max-width: 800px) {
   .hero {
     height: 90svh;
-    padding-top: 10vh;
+    padding-top: 5vh;
   }
 
   .container {

@@ -87,11 +87,13 @@ export default function Navbar() {
           </ul>
         </nav>
         <div className={styles.actions}>
-          <img
-            src={phone}
-            alt="Direct contact"
-            className={styles["phone-img"]}
-          />
+          <a href="tel:+380689482864">
+            <img
+              src={phone}
+              alt="Direct contact"
+              className={styles["phone-img"]}
+            />
+          </a>
           <div className={`${styles["nav__item"]} ${styles.basket}`}>
             <Link to={PathConstants.CART}>
               <img src={basket} alt="Basket" className={styles["basket-img"]} />
