@@ -8,6 +8,7 @@ export default function useContentful() {
   const client = createClient({
     space: SPACE_ID,
     accessToken: PROD_TOKEN,
+    host: "cdn.contentful.com",
     // host: "preview.contentful.com",
   });
 
