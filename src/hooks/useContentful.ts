@@ -1,16 +1,14 @@
 import { createClient } from "contentful";
 
 export default function useContentful() {
-  const SPACE_ID = import.meta.env.SPACE_ID_CONTENT;
-  const PROD_TOKEN = import.meta.env.PROD_TOKEN_CONTENT;
-  // const DEV_TOKEN = import.meta.env.DEV_TOKEN_CONTENT;
-
-  console.log(PROD_TOKEN);
+  // const SPACE_ID = import.meta.env.VITE_SPACE_ID_CONTENT;
+  // const PROD_TOKEN = import.meta.env.VITE_PROD_TOKEN_CONTENT;
+  // const DEV_TOKEN = import.meta.env.VITE_DEV_TOKEN_CONTENT;
 
   const client = createClient({
-    space: SPACE_ID,
-    accessToken: PROD_TOKEN,
-    host: "cdn.contentful.com",
+    space: import.meta.env.VITE_SPACE_ID_CONTENT,
+    accessToken: import.meta.env.VITE_PROD_TOKEN_CONTENT,
+    // host: "cdn.contentful.com",
     // host: "preview.contentful.com",
   });
 
