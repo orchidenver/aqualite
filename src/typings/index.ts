@@ -1,3 +1,5 @@
+import ProductCard from "../components/ProductCard";
+
 export type JSONValue =
   | string
   | number
@@ -109,4 +111,12 @@ export type ActionTypes =
 
 export interface ProviderInterface {
   children: JSX.Element;
+}
+
+export interface ProductCardInterface {
+  description: string;
+  img: string;
+  imgLabel: string;
+  name: string;
+  price: number;
 }

@@ -1,7 +1,8 @@
 import { useRef, useEffect, useState } from "react";
 import { PathConstants } from "../../router/PageRoutes";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
-import { Composition } from "../../typings";
+import useContentful from "../../hooks/useContentful";
+import { Composition, ProductCardInterface } from "../../typings";
 import { COMPOSITION } from "../../utils";
 import ProductCard from "../../components/ProductCard";
 import { Link } from "react-router-dom";
@@ -20,13 +21,20 @@ export default function MainPage() {
   const element = useRef<HTMLElement>(null);
   const [visibleElement, setVisibleElement] = useState<boolean>(false);
   const mobileSize = useMediaQuery("(max-width: 800px)");
-  console.log(visibleElement);
+  const [products, setProducts] = useState<ProductCardInterface[]>();
+  const { getProducts } = useContentful();
+
+  useEffect(() => {
+    getProducts().then((res) => setProducts(res as ProductCardInterface[]));
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
       setVisibleElement(entry.isIntersecting);
     });
+
+    console.log(visibleElement);
 
     observer.observe(element.current as Element);
   }, []);
@@ -50,10 +58,16 @@ export default function MainPage() {
       <section id="shop" className={styles.shop}>
         <h2 className={`${styles["shop__header"]} ${styles.blue}`}>магазин</h2>
         <div className={`${styles.container} ${styles.row}`}>
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {products?.map((product: ProductCardInterface) => (
+            <ProductCard
+              key={product.name}
+              name={product.name}
+              description={product.description}
+              img={product.img}
+              imgLabel={product.imgLabel}
+              price={product.price}
+            />
+          ))}
         </div>
       </section>
       <section id="delivery" className={styles.delivery}>
