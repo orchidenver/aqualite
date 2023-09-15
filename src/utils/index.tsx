@@ -1,4 +1,4 @@
-import { JSONValue, Composition, ProductNames } from "../typings";
+import { JSONValue, Composition } from "../typings";
 
 export const COMPOSITION: Composition[] = [
   {
