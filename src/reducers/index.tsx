@@ -1,9 +1,8 @@
 import { ActionTypes, Actions, InitialContextState } from "../typings";
-import { findPrice } from "../utils";
 
 export function reducer(state: InitialContextState, action: ActionTypes) {
   if (action.type === Actions.ADD_TO_CART) {
-    const { id, name, amount, sum } = action.payload;
+    const { id, name, amount, price } = action.payload;
     const tempItem = state.cart.find((item) => item.id === id);
 
     if (tempItem) {
@@ -23,7 +22,7 @@ export function reducer(state: InitialContextState, action: ActionTypes) {
         id,
         name,
         amount,
-        sum,
+        price,
       };
       return { ...state, cart: [...state.cart, newItem] };
     }
@@ -64,11 +63,10 @@ export function reducer(state: InitialContextState, action: ActionTypes) {
   if (action.type === Actions.COUNT_CART_TOTALS) {
     const { totalItems, totalAmount } = state.cart.reduce(
       (total, cartItem) => {
-        const { amount, name } = cartItem;
-        const price = findPrice(name);
+        const { amount, price } = cartItem;
 
         total.totalItems += amount;
-        total.totalAmount += price! * amount;
+        total.totalAmount += price * amount;
         return total;
       },
       {

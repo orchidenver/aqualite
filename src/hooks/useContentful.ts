@@ -1,10 +1,6 @@
 import { createClient } from "contentful";
 
 export default function useContentful() {
-  // const SPACE_ID = import.meta.env.VITE_SPACE_ID_CONTENT;
-  // const PROD_TOKEN = import.meta.env.VITE_PROD_TOKEN_CONTENT;
-  // const DEV_TOKEN = import.meta.env.VITE_DEV_TOKEN_CONTENT;
-
   const client = createClient({
     space: import.meta.env.VITE_SPACE_ID_CONTENT,
     accessToken: import.meta.env.VITE_PROD_TOKEN_CONTENT,

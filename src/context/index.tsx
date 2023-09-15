@@ -4,6 +4,7 @@ import {
   useContext,
   useReducer,
   Reducer,
+  useState,
 } from "react";
 import { reducer } from "../reducers";
 import {
@@ -13,6 +14,7 @@ import {
   InitialContextState,
   ProviderInterface,
   Product,
+  PricesInterface,
 } from "../typings";
 
 const initialContext: InitialContext = {
@@ -30,6 +32,7 @@ const initialContext: InitialContext = {
 const CartContext = createContext<InitialContext>(initialContext);
 
 export function CartProvider({ children }: ProviderInterface) {
+  const [prices, setPrices] = useState<PricesInterface[]>();
   const [{ cart, cartTotal }, dispatch] = useReducer<
     Reducer<InitialContextState, ActionTypes>
   >(reducer, initialContext);
@@ -39,14 +42,14 @@ export function CartProvider({ children }: ProviderInterface) {
     // localStorage.setItem("cart", JSON.stringify(state.cart));
   }, [cart]);
 
-  function addItem({ id, name, amount, sum }: Product) {
+  function addItem({ id, name, amount, price }: Product) {
     dispatch({
       type: Actions.ADD_TO_CART,
       payload: {
         id,
         name,
         amount,
-        sum,
+        price,
       },
     });
   }

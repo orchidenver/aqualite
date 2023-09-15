@@ -162,16 +162,3 @@ export const sendNotification = async (
     chat_id: id,
   });
 };
-
-export function findPrice(product: ProductNames) {
-  switch (product) {
-    case "bulb":
-      return PRICES.bulb;
-    case "set":
-      return PRICES.set;
-    case "pomp":
-      return PRICES.pomp;
-    case "dispenser":
-      return PRICES.dispenser;
-  }
-}

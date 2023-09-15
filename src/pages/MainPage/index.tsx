@@ -28,6 +28,8 @@ export default function MainPage() {
     getProducts().then((res) => setProducts(res as ProductCardInterface[]));
   }, []);
 
+  console.log(products);
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];

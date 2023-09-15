@@ -52,7 +52,7 @@ export interface Product {
   id: string | number;
   name: ProductNames;
   amount: number;
-  sum: number;
+  price: number;
 }
 
 export interface InitialContextState {
@@ -64,7 +64,7 @@ export interface InitialContextState {
 }
 
 export interface InitialContext extends InitialContextState {
-  addItem: ({ id, name, amount, sum }: Product) => void;
+  addItem: ({ id, name, amount, price }: Product) => void;
   removeItem: (id: number) => void;
   changeAmount: (id: number, value: string) => void;
   clearCart: () => void;
@@ -112,9 +112,13 @@ export interface ProviderInterface {
 }
 
 export interface ProductCardInterface {
-  description: string;
-  img: string;
-  imgLabel: string;
-  name: string;
-  price: number;
+  description: string | undefined;
+  img: string | undefined;
+  imgLabel: string | undefined;
+  name: string | undefined;
+  price: number | undefined;
 }
+
+export type PricesInterface = {
+  [T in string]: number;
+};
