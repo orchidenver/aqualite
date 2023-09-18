@@ -2,14 +2,14 @@ import { ActionTypes, Actions, InitialContextState } from "../typings";
 
 export function reducer(state: InitialContextState, action: ActionTypes) {
   if (action.type === Actions.ADD_TO_CART) {
-    const { id, name, amount, price } = action.payload;
+    const { id, name, amount, price, img, imgLabel, description } =
+      action.payload;
     const tempItem = state.cart.find((item) => item.id === id);
 
     if (tempItem) {
       const tempCart = state.cart.map((item) => {
         if (item.id === id) {
-          let newItemAmount =
-            item.amount + amount > 10 ? 10 : item.amount + amount;
+          let newItemAmount = amount > 10 ? 10 : amount;
           return { ...item, amount: newItemAmount };
         } else {
           return item;
@@ -23,6 +23,9 @@ export function reducer(state: InitialContextState, action: ActionTypes) {
         name,
         amount,
         price,
+        img,
+        imgLabel,
+        description,
       };
       return { ...state, cart: [...state.cart, newItem] };
     }
@@ -42,13 +45,13 @@ export function reducer(state: InitialContextState, action: ActionTypes) {
     const tempCart = state.cart.map((item) => {
       if (item.id === id) {
         if (value === "inc") {
-          let newAmount = item.amount === 10 ? 10 : item.amount + 1;
+          let newAmount = item.amount === 10 ? 10 : item.amount! + 1;
 
           return { ...item, amount: newAmount };
         }
 
         if (value === "dec") {
-          let newAmount = item.amount === 1 ? 1 : item.amount - 1;
+          let newAmount = item.amount === 1 ? 0 : item.amount! - 1;
 
           return { ...item, amount: newAmount };
         }
@@ -57,24 +60,37 @@ export function reducer(state: InitialContextState, action: ActionTypes) {
       return item;
     });
 
+    console.log(tempCart);
     return { ...state, cart: tempCart };
   }
 
   if (action.type === Actions.COUNT_CART_TOTALS) {
-    const { totalItems, totalAmount } = state.cart.reduce(
+    const { totalItems, totalSum } = state.cart.reduce(
       (total, cartItem) => {
         const { amount, price } = cartItem;
 
-        total.totalItems += amount;
-        total.totalAmount += price * amount;
+        if (typeof price === "boolean")
+          return {
+            totalItems: 0,
+            totalSum: 0,
+          };
+
+        total.totalItems += amount!;
+        total.totalSum += price * amount!;
         return total;
       },
       {
         totalItems: 0,
-        totalAmount: 0,
+        totalSum: 0,
       }
     );
-    return { ...state, totalItems, totalAmount };
+    return {
+      ...state,
+      cartTotal: {
+        totalItems,
+        totalSum,
+      },
+    };
   }
 
   throw new Error(`No Matching "${action.type}" - action type`);

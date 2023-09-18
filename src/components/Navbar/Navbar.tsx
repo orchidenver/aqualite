@@ -4,6 +4,7 @@ import MobileMenu from "../MobileMenu";
 import { Anchors } from "../../typings";
 import { PathConstants } from "../../router/PageRoutes";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
+import { useCartContext } from "../../context";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/logo-blue.svg";
@@ -13,6 +14,9 @@ import burgermenu from "../../assets/burgermenu.svg";
 
 export default function Navbar() {
   const [selectedSection, setSelectedSection] = useState<Anchors>(Anchors.Hero);
+  const {
+    cartTotal: { totalItems },
+  } = useCartContext();
   const location = useLocation();
   const mobileSize = useMediaQuery("(max-width: 800px)");
   const doesBackgroundNeedToBeWhite =
@@ -81,7 +85,7 @@ export default function Navbar() {
             <li className={`${styles["nav__item"]} ${styles.basket}`}>
               <Link to={PathConstants.CART}>
                 <img src={basket} alt="Basket" />
-                <span className={styles.quantity}>0</span>
+                <span className={styles.quantity}>{totalItems}</span>
               </Link>
             </li>
           </ul>

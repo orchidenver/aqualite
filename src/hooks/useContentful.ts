@@ -1,4 +1,5 @@
 import { createClient } from "contentful";
+import { assertTypeOfData, backupData, assertTypeOfPrice } from "../utils";
 
 export default function useContentful() {
   const client = createClient({
@@ -14,6 +15,8 @@ export default function useContentful() {
         content_type: "product",
       });
 
+      if (!entries) throw new Error("Something went wrong");
+
       const sabitizedEntries = entries.items.map((item) => {
         const { name, description, picture, price } = item.fields;
         // @ts-ignore
@@ -21,11 +24,19 @@ export default function useContentful() {
         // @ts-ignore
         const imgLabel = picture?.fields.file.fileName;
 
+        assertTypeOfData<string>(name);
+        assertTypeOfData<string>(description);
+        assertTypeOfData<string>(img);
+        assertTypeOfData<string>(imgLabel);
+        assertTypeOfPrice(price);
+
         return { name, description, price, img, imgLabel };
       });
 
       return sabitizedEntries;
-    } catch (error) {}
+    } catch (error) {
+      return backupData;
+    }
   }
 
   return { getProducts };

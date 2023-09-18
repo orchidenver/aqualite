@@ -6,15 +6,20 @@ import styles from "./FastOrder.module.css";
 import logo from "../../assets/logo-white.svg";
 import phone from "../../assets/phone_icon.svg";
 import { ProductCardInterface } from "../../typings";
+import { fastOrderBackupData } from "../../utils";
 
 export default function FastOrder() {
-  const [product, setProduct] = useState<ProductCardInterface>();
+  const [product, setProduct] =
+    useState<ProductCardInterface>(fastOrderBackupData);
   const { getProducts } = useContentful();
 
   useEffect(() => {
     getProducts().then((res) => {
-      const singleProduct = res?.find((res) => res.imgLabel === "pomp.webp");
-      setProduct(singleProduct as ProductCardInterface);
+      const singleProduct = res.find(
+        (res) => res.imgLabel === "bulb.webp"
+      ) as ProductCardInterface;
+
+      setProduct(singleProduct);
     });
   }, []);
 
@@ -30,12 +35,12 @@ export default function FastOrder() {
 
       <div className={styles["fast-order__content"]}>
         <ProductCard
-          key={product?.name}
-          name={product?.name}
-          description={product?.description}
-          img={product?.img}
-          imgLabel={product?.imgLabel}
-          price={product?.price}
+          key={product.name}
+          name={product.name}
+          description={product.description}
+          img={product.img}
+          imgLabel={product.imgLabel}
+          price={product.price}
         />
         <div className={styles.action}>
           <TransparentButton reference="/" color="#FFF">

@@ -1,4 +1,4 @@
-import { JSONValue, Composition } from "../typings";
+import { JSONValue, Composition, ProductCardInterface } from "../typings";
 
 export const COMPOSITION: Composition[] = [
   {
@@ -161,4 +161,57 @@ export const sendNotification = async (
     text: DATA,
     chat_id: id,
   });
+};
+
+export function assertTypeOfData<T>(arg: any): asserts arg is T {
+  if (typeof arg !== "number" && typeof arg !== "string") {
+    console.log("!!!", arg);
+    throw new Error(`${arg} ${typeof arg} error`);
+  }
+}
+
+export function assertTypeOfPrice(arg: any): asserts arg is number | boolean {
+  if (typeof arg !== "number" && typeof arg !== "boolean") {
+    console.log("!!!", arg);
+    throw new Error(`${arg} ${typeof arg} error`);
+  }
+}
+
+export const backupData: ProductCardInterface[] = [
+  {
+    name: "електро диспенсер",
+    description: "Електрична помпа для балонів 19 л.",
+    price: false,
+    img: "//images.ctfassets.net/s5xleiql8x7z/2SpZNffEPaCq2a7MKjEXgP/118362e036961d6467c87a8e585dbf83/dispenser.webp",
+    imgLabel: "dispenser.webp",
+  },
+  {
+    name: "помпа",
+    description: "Стандартна помпа для балонів 19 л.",
+    price: false,
+    img: "//images.ctfassets.net/s5xleiql8x7z/csESox23GgZWso5iOxpOM/cd032dfbd29fc8233470ea6416e5b15d/pomp.webp",
+    imgLabel: "pomp.webp",
+  },
+  {
+    name: "стартовий набір",
+    description: "Стартовий набір. 2 балона та помпа. Вода у подарунок",
+    price: false,
+    img: "//images.ctfassets.net/s5xleiql8x7z/32ZT785wcSAmMfjzYa8Mh2/444d775fd39b89e146bb4dffee39473e/set.webp",
+    imgLabel: "set.webp",
+  },
+  {
+    name: "балон",
+    description: "Негазована питна вода «Аквалайт» 19 л.",
+    price: false,
+    img: "//images.ctfassets.net/s5xleiql8x7z/8UPwdVjRtAx9ohmrGQftM/673626b31fd0b639d4d73d4133a804ff/bulb.webp",
+    imgLabel: "bulb.webp",
+  },
+];
+
+export const fastOrderBackupData: ProductCardInterface = {
+  name: "балон",
+  description: "Негазована питна вода «Аквалайт» 19 л.",
+  price: false,
+  img: "//images.ctfassets.net/s5xleiql8x7z/8UPwdVjRtAx9ohmrGQftM/673626b31fd0b639d4d73d4133a804ff/bulb.webp",
+  imgLabel: "bulb.webp",
 };

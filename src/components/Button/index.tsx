@@ -2,7 +2,7 @@ import { ButtonInterface } from "../../typings";
 import { useLocation, Link } from "react-router-dom";
 import styles from "./Button.module.css";
 
-export default function Button({ width, height }: ButtonInterface) {
+export default function Button({ width, height, onClick }: ButtonInterface) {
   const location = useLocation();
 
   return location.pathname === "/order" || location.pathname === "/cart" ? (
@@ -14,6 +14,7 @@ export default function Button({ width, height }: ButtonInterface) {
         height,
         maxWidth: width,
       }}
+      onClick={onClick}
     >
       Замовити
     </Link>
@@ -25,6 +26,7 @@ export default function Button({ width, height }: ButtonInterface) {
         height,
         maxWidth: width,
       }}
+      onClick={onClick}
     >
       Замовити
     </button>

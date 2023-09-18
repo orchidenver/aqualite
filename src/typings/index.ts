@@ -23,6 +23,7 @@ export interface LinkComponentInterface {
 export interface ButtonInterface {
   width?: string;
   height?: string;
+  onClick?: () => void;
 }
 
 export interface TransparentButtonInterface {
@@ -49,10 +50,13 @@ export enum ProductNames {
 }
 
 export interface Product {
-  id: string | number;
-  name: ProductNames;
+  id: string;
+  name: string;
   amount: number;
-  price: number;
+  price: number | boolean;
+  description: string;
+  img: string;
+  imgLabel: string;
 }
 
 export interface InitialContextState {
@@ -65,8 +69,8 @@ export interface InitialContextState {
 
 export interface InitialContext extends InitialContextState {
   addItem: ({ id, name, amount, price }: Product) => void;
-  removeItem: (id: number) => void;
-  changeAmount: (id: number, value: string) => void;
+  removeItem: (id: string | undefined) => void;
+  changeAmount: (id: string | undefined, value: string | undefined) => void;
   clearCart: () => void;
 }
 
@@ -91,13 +95,13 @@ export type ActionTypes =
     }
   | {
       type: Actions.REMOVE_CART_ITEM;
-      payload: number;
+      payload: string | undefined;
     }
   | {
       type: Actions.CHANGE_CART_ITEM_AMOUNT;
       payload: {
-        id: number;
-        value: string;
+        id: string | undefined;
+        value: string | undefined;
       };
     }
   | {
@@ -112,11 +116,11 @@ export interface ProviderInterface {
 }
 
 export interface ProductCardInterface {
-  description: string | undefined;
-  img: string | undefined;
-  imgLabel: string | undefined;
-  name: string | undefined;
-  price: number | undefined;
+  description: string;
+  img: string;
+  imgLabel: string;
+  name: string;
+  price: number | boolean;
 }
 
 export type PricesInterface = {

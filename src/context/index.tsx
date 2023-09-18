@@ -39,7 +39,15 @@ export function CartProvider({ children }: ProviderInterface) {
     // localStorage.setItem("cart", JSON.stringify(state.cart));
   }, [cart]);
 
-  function addItem({ id, name, amount, price }: Product) {
+  function addItem({
+    id,
+    name,
+    amount,
+    price,
+    img,
+    imgLabel,
+    description,
+  }: Product) {
     dispatch({
       type: Actions.ADD_TO_CART,
       payload: {
@@ -47,15 +55,18 @@ export function CartProvider({ children }: ProviderInterface) {
         name,
         amount,
         price,
+        img,
+        imgLabel,
+        description,
       },
     });
   }
 
-  function removeItem(id: number) {
+  function removeItem(id: string | undefined) {
     dispatch({ type: Actions.REMOVE_CART_ITEM, payload: id });
   }
 
-  function changeAmount(id: number, value: string) {
+  function changeAmount(id: string | undefined, value: string | undefined) {
     dispatch({ type: Actions.CHANGE_CART_ITEM_AMOUNT, payload: { id, value } });
   }
 
