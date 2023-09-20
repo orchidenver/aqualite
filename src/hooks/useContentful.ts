@@ -4,9 +4,9 @@ import { assertTypeOfData, backupData, assertTypeOfPrice } from "../utils";
 export default function useContentful() {
   const client = createClient({
     space: import.meta.env.VITE_SPACE_ID_CONTENT,
-    accessToken: import.meta.env.VITE_DEV_TOKEN_CONTENT,
+    accessToken: import.meta.env.VITE_PROD_TOKEN_CONTENT,
     // host: "cdn.contentful.com",
-    host: "preview.contentful.com",
+    // host: "preview.contentful.com",
   });
 
   async function getProducts() {
