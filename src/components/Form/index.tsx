@@ -3,7 +3,7 @@ import { useCartContext } from "../../context";
 import { NameSchema, PhoneSchema, FormSchema } from "../../schemas";
 import { z } from "zod";
 import { createTsForm, useDescription, useTsController } from "@ts-react/form";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import styles from "./Form.module.css";
 
 const TG_TOKEN = import.meta.env.VITE_TG_TOKEN;
@@ -88,14 +88,14 @@ function TextField({ inputId }: { inputId: string }) {
 
 export default function Form() {
   const { clearCart } = useCartContext();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <MyForm
       onSubmit={(data) => {
-        sendNotification(JSON.stringify(data), CHAT_ID, TG_TOKEN);
-        clearCart();
-        navigate("/");
+        // sendNotification(JSON.stringify(data), CHAT_ID, TG_TOKEN);
+        // clearCart();
+        // navigate("/");
       }}
       renderAfter={() => (
         <input

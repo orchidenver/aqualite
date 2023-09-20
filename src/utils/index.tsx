@@ -160,8 +160,6 @@ export const sendNotification = async (
           `${item.name} : ${item.amount} шт, ${item.price} грн. \n`
       )
       .join(" ");
-
-    return newOrder;
   }
 
   const DATA = `
