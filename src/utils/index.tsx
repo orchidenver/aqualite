@@ -1,4 +1,9 @@
-import { JSONValue, Composition, ProductCardInterface } from "../typings";
+import {
+  JSONValue,
+  Composition,
+  ProductCardInterface,
+  Product,
+} from "../typings";
 
 export const COMPOSITION: Composition[] = [
   {
@@ -127,7 +132,7 @@ export function getCookie(name: string) {
         "=([^;]*)"
     )
   );
-  return matches ? decodeURIComponent(matches[1]) : undefined;
+  return matches ? decodeURIComponent(matches[1]) : "";
 }
 
 export function deleteCookie(name: string) {
@@ -142,9 +147,22 @@ export const sendNotification = async (
   token: string
 ) => {
   const order = JSON.parse(text);
+  let newOrder;
   Object.entries(JSON.parse(text)).forEach((entry: [string, unknown]) =>
     setCookie(entry[0], entry[1], { maxAge: 1209600, secure: "secure" })
   );
+
+  if (getCookie("cart")) {
+    const cartData = JSON.parse(getCookie("cart"));
+    newOrder = cartData
+      .map(
+        (item: Product) =>
+          `${item.name} : ${item.amount} шт, ${item.price} грн. \n`
+      )
+      .join(" ");
+
+    return newOrder;
+  }
 
   const DATA = `
     НОВЕ ЗАМОВЛЕННЯ \n
@@ -153,7 +171,7 @@ export const sendNotification = async (
     Адреса: вул. ${order.street && capitalize(order.street)}, ${
     order.building
   }, під'їзд ${order.porch}, кв. ${order.flat} \n
-    Замовлення: 1 балон 
+    Замовлення: \n ${newOrder ? newOrder : "передзвоніть мені"} 
   `;
 
   const endpoint = `https://api.telegram.org/bot${token}/sendMessage`;

@@ -4,6 +4,7 @@ import {
   useContext,
   useReducer,
   Reducer,
+  useState,
 } from "react";
 import { reducer } from "../reducers";
 import {
@@ -25,6 +26,9 @@ const initialContext: InitialContext = {
   removeItem: () => {},
   changeAmount: () => {},
   clearCart: () => {},
+  mobileMenuOpen: false,
+  closeMobileMenu: () => {},
+  toggleMobileMenu: () => {},
 };
 
 const CartContext = createContext<InitialContext>(initialContext);
@@ -33,11 +37,19 @@ export function CartProvider({ children }: ProviderInterface) {
   const [{ cart, cartTotal }, dispatch] = useReducer<
     Reducer<InitialContextState, ActionTypes>
   >(reducer, initialContext);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
     dispatch({ type: Actions.COUNT_CART_TOTALS });
-    // localStorage.setItem("cart", JSON.stringify(state.cart));
   }, [cart]);
+
+  function toggleMobileMenu() {
+    setMobileMenuOpen((prevState) => !prevState);
+  }
+
+  function closeMobileMenu() {
+    setMobileMenuOpen(false);
+  }
 
   function addItem({
     id,
@@ -77,10 +89,13 @@ export function CartProvider({ children }: ProviderInterface) {
   const cartValue: InitialContext = {
     cart,
     cartTotal,
+    mobileMenuOpen,
     addItem,
     removeItem,
     changeAmount,
     clearCart,
+    closeMobileMenu,
+    toggleMobileMenu,
   };
 
   return (

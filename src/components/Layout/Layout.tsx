@@ -12,14 +12,12 @@ export default function Layout() {
   }, [pathname]);
 
   return (
-    <>
+    <Suspense fallback={<Preloader />}>
       <Navbar />
       <main>
-        <Suspense fallback={<Preloader />}>
-          <Outlet />
-          <Footer />
-        </Suspense>
+        <Outlet />
+        <Footer />
       </main>
-    </>
+    </Suspense>
   );
 }

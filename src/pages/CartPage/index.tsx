@@ -4,6 +4,9 @@ import TransparentButton from "../../components/TransparentButton";
 import Button from "../../components/Button";
 import { useCartContext } from "../../context";
 import { PathConstants } from "../../router/PageRoutes";
+import deleteItem from "../../assets/deleteitem.svg";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
+import Preloader from "../../components/Preloader";
 
 import styles from "./CartPage.module.css";
 
@@ -13,6 +16,7 @@ export default function CartPage() {
     cartTotal: { totalSum, totalItems },
     removeItem,
   } = useCartContext();
+  const mobileSize = useMediaQuery("(max-width: 800px)");
 
   return (
     <aside className={styles.cart}>
@@ -46,7 +50,7 @@ export default function CartPage() {
                           className={styles["delete-btn"]}
                           onClick={() => removeItem(item.id)}
                         >
-                          &#128473;
+                          <img src={deleteItem} alt="Delete" />
                         </button>
                         <p className={styles.sum}>
                           {item.price} <span>грн.</span>
@@ -71,7 +75,9 @@ export default function CartPage() {
         ) : (
           <div className={styles["cart__empty"]}>
             <p className={styles["cart__message"]}>Ваш кошик порожній</p>
-            <TransparentButton reference={PathConstants.FAST_ORDER}>
+            <TransparentButton
+              reference={mobileSize ? PathConstants.FAST_ORDER : "/#shop"}
+            >
               Швидке замовлення
             </TransparentButton>
           </div>

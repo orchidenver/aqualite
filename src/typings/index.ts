@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export type JSONValue =
   | string
   | number
@@ -65,6 +67,7 @@ export interface InitialContextState {
     totalItems: number;
     totalSum: number;
   };
+  mobileMenuOpen: boolean;
 }
 
 export interface InitialContext extends InitialContextState {
@@ -72,6 +75,8 @@ export interface InitialContext extends InitialContextState {
   removeItem: (id: string | undefined) => void;
   changeAmount: (id: string | undefined, value: string | undefined) => void;
   clearCart: () => void;
+  closeMobileMenu: () => void;
+  toggleMobileMenu: () => void;
 }
 
 export enum Actions {

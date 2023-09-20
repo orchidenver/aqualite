@@ -22,7 +22,7 @@ export default function Footer() {
             className={styles["contacts__mail"]}
           >
             <img src={mail} alt="Email contact" />
-            <span>aqualite@gmai.com</span>
+            <span>aqualite@gmail.com</span>
           </a>
         </div>
         <p className={styles["contacts__text"]}>

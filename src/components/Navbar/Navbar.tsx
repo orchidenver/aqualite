@@ -11,11 +11,15 @@ import logo from "../../assets/logo-blue.svg";
 import phone from "../../assets/phone_icon.svg";
 import basket from "../../assets/basket_icon.svg";
 import burgermenu from "../../assets/burgermenu.svg";
+import closemenu from "../../assets/closemenu.svg";
 
 export default function Navbar() {
   const [selectedSection, setSelectedSection] = useState<Anchors>(Anchors.Hero);
   const {
     cartTotal: { totalItems },
+    mobileMenuOpen,
+    toggleMobileMenu,
+    closeMobileMenu,
   } = useCartContext();
   const location = useLocation();
   const mobileSize = useMediaQuery("(max-width: 800px)");
@@ -27,10 +31,17 @@ export default function Navbar() {
   return (
     <header className={`${doesBackgroundNeedToBeWhite && styles.white}`}>
       <div className={`${styles.container} ${styles.row}`}>
-        <a className={styles.menu}>
-          <img src={burgermenu} alt="Mobile menu" />
+        <a className={styles.menu} onClick={toggleMobileMenu}>
+          <img
+            src={mobileMenuOpen ? closemenu : burgermenu}
+            alt="Mobile menu"
+          />
         </a>
-        <Link to="/" className={styles["header__logo"]}>
+        <Link
+          to="/"
+          className={styles["header__logo"]}
+          onClick={closeMobileMenu}
+        >
           <img src={logo} alt="Logo" className={styles["header__img"]} />
         </Link>
         <nav className={`header__nav ${styles.nav}`}>
@@ -90,7 +101,7 @@ export default function Navbar() {
             </li>
           </ul>
         </nav>
-        <div className={styles.actions}>
+        <div className={styles.actions} onClick={closeMobileMenu}>
           <a href="tel:+380689482864">
             <img
               src={phone}
@@ -101,7 +112,7 @@ export default function Navbar() {
           <div className={`${styles["nav__item"]} ${styles.basket}`}>
             <Link to={PathConstants.CART}>
               <img src={basket} alt="Basket" className={styles["basket-img"]} />
-              <span className={styles.quantity}>0</span>
+              <span className={styles.quantity}>{totalItems}</span>
             </Link>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { ActionTypes, Actions, InitialContextState } from "../typings";
+import { setCookie, deleteCookie, getCookie } from "../utils";
 
 export function reducer(state: InitialContextState, action: ActionTypes) {
   if (action.type === Actions.ADD_TO_CART) {
@@ -16,6 +17,10 @@ export function reducer(state: InitialContextState, action: ActionTypes) {
         }
       });
 
+      setCookie("cart", JSON.stringify(tempCart), {
+        maxAge: 1209600,
+        secure: "secure",
+      });
       return { ...state, cart: tempCart };
     } else {
       const newItem = {
@@ -27,16 +32,25 @@ export function reducer(state: InitialContextState, action: ActionTypes) {
         imgLabel,
         description,
       };
+      setCookie("cart", JSON.stringify([...state.cart, newItem]), {
+        maxAge: 1209600,
+        secure: "secure",
+      });
       return { ...state, cart: [...state.cart, newItem] };
     }
   }
 
   if (action.type === Actions.REMOVE_CART_ITEM) {
     const tempCart = state.cart.filter((item) => item.id !== action.payload);
+    setCookie("cart", JSON.stringify(tempCart), {
+      maxAge: 1209600,
+      secure: "secure",
+    });
     return { ...state, cart: tempCart };
   }
 
   if (action.type === Actions.CLEAR_CART) {
+    deleteCookie("cart");
     return { ...state, cart: [] };
   }
 
@@ -60,7 +74,10 @@ export function reducer(state: InitialContextState, action: ActionTypes) {
       return item;
     });
 
-    console.log(tempCart);
+    setCookie("cart", JSON.stringify(tempCart), {
+      maxAge: 1209600,
+      secure: "secure",
+    });
     return { ...state, cart: tempCart };
   }
 
