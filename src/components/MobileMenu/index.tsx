@@ -9,7 +9,6 @@ import LinkComponent from "../LinkComponent";
 export default function MobileMenu() {
   const { mobileMenuOpen, closeMobileMenu } = useCartContext();
   const [selectedSection, setSelectedSection] = useState<Anchors>(Anchors.Hero);
-  const temp = `${styles.active} ${styles.inactive}`;
   return (
     <aside
       className={`${styles.sidebar} ${

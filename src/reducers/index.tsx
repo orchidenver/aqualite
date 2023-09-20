@@ -1,5 +1,5 @@
 import { ActionTypes, Actions, InitialContextState } from "../typings";
-import { setCookie, deleteCookie, getCookie } from "../utils";
+import { setCookie, deleteCookie } from "../utils";
 
 export function reducer(state: InitialContextState, action: ActionTypes) {
   if (action.type === Actions.ADD_TO_CART) {
