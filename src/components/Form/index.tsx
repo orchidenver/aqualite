@@ -94,7 +94,7 @@ export default function Form() {
   return (
     <MyForm
       onSubmit={(data) => {
-        // sendNotification(JSON.stringify(data), CHAT_ID, TG_TOKEN);
+        sendNotification(JSON.stringify(data), CHAT_ID, TG_TOKEN);
         clearCart();
         navigate(PathConstants.FEEDBACK);
       }}
