@@ -10,8 +10,6 @@ import styles from "./Navbar.module.css";
 import logo from "../../assets/logo-blue.svg";
 import phone from "../../assets/phone_icon.svg";
 import basket from "../../assets/basket_icon.svg";
-import burgermenu from "../../assets/burgermenu.svg";
-import closemenu from "../../assets/closemenu.svg";
 
 export default function Navbar() {
   const [burger_class, setBurgerClass] = useState<string>(
@@ -21,7 +19,6 @@ export default function Navbar() {
   const [selectedSection, setSelectedSection] = useState<Anchors>(Anchors.Hero);
   const {
     cartTotal: { totalItems },
-    mobileMenuOpen,
     toggleMobileMenu,
     closeMobileMenu,
   } = useCartContext();
