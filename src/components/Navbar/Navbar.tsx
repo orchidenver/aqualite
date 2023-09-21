@@ -60,7 +60,12 @@ export default function Navbar() {
           className={styles["header__logo"]}
           onClick={closeMobileMenu}
         >
-          <img src={logo} alt="Logo" className={styles["header__img"]} />
+          <img
+            loading="lazy"
+            src={logo}
+            alt="Logo"
+            className={styles["header__img"]}
+          />
         </Link>
         <nav className={`header__nav ${styles.nav}`}>
           <ul
@@ -106,22 +111,23 @@ export default function Navbar() {
             className={`${styles["nav__list"]} ${styles["nav__list--secondary"]}`}
           >
             <li className={styles["nav__item"]}>
-              <a href="tel:+380689482864">
-                <img src={phone} alt="Direct contact" />
+              <a href="tel:+380689482864" target="_blank">
+                <img loading="lazy" src={phone} alt="Direct contact" />
                 <span>068 948 28 64</span>
               </a>
             </li>
             <li className={`${styles["nav__item"]} ${styles.basket}`}>
               <Link to={PathConstants.CART}>
-                <img src={basket} alt="Basket" />
+                <img loading="lazy" src={basket} alt="Basket" />
                 <span className={styles.quantity}>{totalItems}</span>
               </Link>
             </li>
           </ul>
         </nav>
         <div className={styles.actions} onClick={closeMobileMenu}>
-          <a href="tel:+380689482864">
+          <a href="tel:+380689482864" target="_blank">
             <img
+              loading="lazy"
               src={phone}
               alt="Direct contact"
               className={styles["phone-img"]}
@@ -129,7 +135,12 @@ export default function Navbar() {
           </a>
           <div className={`${styles["nav__item"]} ${styles.basket}`}>
             <Link to={PathConstants.CART}>
-              <img src={basket} alt="Basket" className={styles["basket-img"]} />
+              <img
+                loading="lazy"
+                src={basket}
+                alt="Basket"
+                className={styles["basket-img"]}
+              />
               <span className={styles.quantity}>{totalItems}</span>
             </Link>
           </div>

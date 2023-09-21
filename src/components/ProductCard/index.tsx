@@ -27,6 +27,7 @@ export default function ProductCard({
       }}
     >
       <img
+      loading="lazy" 
         src={img}
         alt={imgLabel}
         className={styles["card__img"]}

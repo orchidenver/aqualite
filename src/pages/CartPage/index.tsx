@@ -29,6 +29,7 @@ export default function CartPage() {
                   <Fragment key={item.id}>
                     <div className={styles["cart__item"]}>
                       <img
+                        loading="lazy"
                         src={item.img}
                         alt={item.imgLabel}
                         className={styles["cart__img"]}
@@ -49,7 +50,7 @@ export default function CartPage() {
                           className={styles["delete-btn"]}
                           onClick={() => removeItem(item.id)}
                         >
-                          <img src={deleteItem} alt="Delete" />
+                          <img loading="lazy" src={deleteItem} alt="Delete" />
                         </button>
                         <p className={styles.sum}>
                           {item.price} <span>грн.</span>

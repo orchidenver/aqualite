@@ -26,9 +26,9 @@ export default function FastOrder() {
   return (
     <section className={styles["fast-order"]}>
       <nav className={styles.nav}>
-        <img src={logo} alt="Logo" />
-        <a href="tel:068 948 28 64">
-          <img src={phone} alt="Phone" className="tel" />
+        <img loading="lazy" src={logo} alt="Logo" />
+        <a href="tel:068 948 28 64" target="_blank">
+          <img loading="lazy" src={phone} alt="Phone" className="tel" />
         </a>
       </nav>
       <h3 className={styles["fast-order__header"]}>швидке замовлення</h3>

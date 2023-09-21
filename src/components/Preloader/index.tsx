@@ -5,6 +5,7 @@ export default function Preloader() {
   return (
     <aside className={styles.preloader}>
       <img
+        loading="lazy"
         src={logo}
         alt="logo loading site"
         className={styles["preloader__img"]}

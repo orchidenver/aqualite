@@ -48,11 +48,19 @@ export default function MainPage() {
               доставка негазованої питної води
               <p className={styles.blue}>в кривому розі</p>
             </h1>
-            <Link to={PathConstants.FORM} className={styles["hero__btn"]}>
+            <Link
+              to={mobileSize ? PathConstants.FAST_ORDER : PathConstants.FORM}
+              className={styles["hero__btn"]}
+            >
               Замовити
             </Link>
           </div>
-          <img src={hero} alt="Water" className={styles["hero__img"]} />
+          <img
+            loading="lazy"
+            src={hero}
+            alt="Water"
+            className={styles["hero__img"]}
+          />
         </div>
       </section>
       <section id="shop" className={styles.shop}>
@@ -76,31 +84,50 @@ export default function MainPage() {
         </h2>
         <div className={`${styles.container} ${styles.row}`}>
           <div className={styles.card}>
-            <img src={card1} alt="Order" className={styles["card__img"]} />
+            <img
+              loading="lazy"
+              src={card1}
+              alt="Order"
+              className={styles["card__img"]}
+            />
             <h2 className={styles["card__title"]}>Оформіть заявку</h2>
             <p className={styles["card__text"]}>
               На{" "}
               <Link
-                to={PathConstants.FORM}
+                to={mobileSize ? PathConstants.FAST_ORDER : PathConstants.FORM}
                 className={styles["card__text-link"]}
               >
                 сайті
               </Link>{" "}
               або за{" "}
-              <a href="tel:+380689482864" className={styles["card__text-link"]}>
+              <a
+                href="tel:+380689482864"
+                className={styles["card__text-link"]}
+                target="_blank"
+              >
                 телефоном
               </a>
             </p>
           </div>
           <div className={styles.card}>
-            <img src={card2} alt="Contact" className={styles["card__img"]} />
+            <img
+              loading="lazy"
+              src={card2}
+              alt="Contact"
+              className={styles["card__img"]}
+            />
             <h2 className={styles["card__title"]}>Обробляємо заявку</h2>
             <p className={styles["card__text"]}>
               Оператор передзвонить вам для уточнення зручного часу доставки
             </p>
           </div>
           <div className={styles.card}>
-            <img src={card3} alt="Delivery" className={styles["card__img"]} />
+            <img
+              loading="lazy"
+              src={card3}
+              alt="Delivery"
+              className={styles["card__img"]}
+            />
             <h2 className={styles["card__title"]}>Доставляємо воду</h2>
             <p className={styles["card__text"]}>
               Найкратчайшим шляхом, по улюбленим дорогам та вулочкам, під
@@ -108,7 +135,12 @@ export default function MainPage() {
             </p>
           </div>
           <div className={styles.card}>
-            <img src={card4} alt="Water" className={styles["card__img"]} />
+            <img
+              loading="lazy"
+              src={card4}
+              alt="Water"
+              className={styles["card__img"]}
+            />
             <h2 className={styles["card__title"]}>Вода вже у вас</h2>
             <p className={styles["card__text"]}>
               Донесемо навіть на 9й поверх якщо вимкнули світло. Русні пи#да!
@@ -123,6 +155,7 @@ export default function MainPage() {
         <div className={`${styles.container} ${mobileSize ? styles.full : ""}`}>
           <div className={styles["about__container"]}>
             <img
+              loading="lazy"
               src={waterexample1}
               alt="Water example"
               className={styles["about__img"]}
@@ -142,6 +175,7 @@ export default function MainPage() {
             }`}
           >
             <img
+              loading="lazy"
               src={waterexample2}
               alt="Water example"
               className={styles["about__img"]}
@@ -160,6 +194,7 @@ export default function MainPage() {
           </div>
           <div className={styles["about__container"]}>
             <img
+              loading="lazy"
               src={waterexample3}
               alt="Water example"
               className={styles["about__img"]}
@@ -199,8 +234,9 @@ export default function MainPage() {
             </div>
           </div>
           <div className={styles["composition__sertificate"]}>
-            <a href="#">
+            <a href="https://ibb.co/ymCddsG" target="_blank">
               <img
+                loading="lazy"
                 src={sertificate}
                 alt="Sertificate"
                 className={styles["composition__img"]}

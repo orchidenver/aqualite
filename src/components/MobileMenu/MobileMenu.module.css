@@ -22,7 +22,7 @@
 
 .inactive {
   animation: slide-out 0.4s ease-in 0.2s both;
-  /* display: none; */
+  display: none;
 }
 
 .sidebar__item {
