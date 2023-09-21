@@ -15,8 +15,6 @@
 }
 
 .active {
-  transition: all 0.4s ease-in;
-  transform: translateX(0);
   overflow: hidden;
   display: flex;
   animation: slide-in 0.4s ease-in 0.2s both;
@@ -24,9 +22,7 @@
 
 .inactive {
   animation: slide-out 0.4s ease-in 0.2s both;
-  transition: all 0.4s ease-in;
-  transform: translateX(100vw);
-  display: none;
+  /* display: none; */
 }
 
 .sidebar__item {

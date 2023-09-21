@@ -14,6 +14,10 @@ import burgermenu from "../../assets/burgermenu.svg";
 import closemenu from "../../assets/closemenu.svg";
 
 export default function Navbar() {
+  const [burger_class, setBurgerClass] = useState<string>(
+    `${styles["burger-bar"]} ${styles.unclicked}`
+  );
+  const [isMenuClicked, setIsMenuClicked] = useState<boolean>(false);
   const [selectedSection, setSelectedSection] = useState<Anchors>(Anchors.Hero);
   const {
     cartTotal: { totalItems },
@@ -28,15 +32,32 @@ export default function Navbar() {
     location.pathname === "/cart" ||
     location.pathname === "/feedback";
 
+  const updateMenu = () => {
+    if (!isMenuClicked) {
+      setBurgerClass(`${styles["burger-bar"]} ${styles.clicked}`);
+    } else {
+      setBurgerClass(`${styles["burger-bar"]} ${styles.unclicked}`);
+    }
+    setIsMenuClicked(!isMenuClicked);
+  };
+
   return (
     <header className={`${doesBackgroundNeedToBeWhite && styles.white}`}>
       <div className={`${styles.container} ${styles.row}`}>
-        <a className={styles.menu} onClick={toggleMobileMenu}>
-          <img
-            src={mobileMenuOpen ? closemenu : burgermenu}
-            alt="Mobile menu"
-          />
-        </a>
+        {mobileSize && (
+          <div
+            className={styles["burger-menu"]}
+            onClick={() => {
+              updateMenu();
+              toggleMobileMenu();
+            }}
+          >
+            <div className={burger_class}></div>
+            <div className={burger_class}></div>
+            <div className={burger_class}></div>
+          </div>
+        )}
+
         <Link
           to="/"
           className={styles["header__logo"]}
