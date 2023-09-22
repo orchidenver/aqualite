@@ -42,13 +42,6 @@ export interface Composition {
   };
 }
 
-export enum ProductNames {
-  BULB = "bulb",
-  SET = "set",
-  POMP = "pomp",
-  DISPENSER = "dispenser",
-}
-
 export interface Product {
   id: string;
   name: string;
@@ -129,3 +122,11 @@ export interface ProductCardInterface {
 export type PricesInterface = {
   [T in string]: number;
 };
+
+export interface CounterInterface {
+  label: string;
+  name: string;
+  price: number | boolean;
+  img: string;
+  description: string;
+}

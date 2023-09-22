@@ -1,13 +1,6 @@
 import { useCartContext } from "../../context";
+import { CounterInterface } from "../../typings";
 import styles from "./Counter.module.css";
-
-export interface CounterInterface {
-  label: string;
-  name: string;
-  price: number | boolean;
-  img: string;
-  description: string;
-}
 
 export default function Counter({
   label,

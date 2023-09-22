@@ -4,8 +4,8 @@ import TransparentButton from "../../components/TransparentButton";
 import Button from "../../components/Button";
 import { useCartContext } from "../../context";
 import { PathConstants } from "../../router/PageRoutes";
-import deleteItem from "../../assets/deleteitem.svg";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
+import deleteItem from "../../assets/deleteitem.svg";
 
 import styles from "./CartPage.module.css";
 

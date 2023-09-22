@@ -19,24 +19,12 @@ import sertificate from "../../assets/sertificate.jpg";
 
 export default function MainPage() {
   const element = useRef<HTMLElement>(null);
-  const [visibleElement, setVisibleElement] = useState<boolean>(false);
   const mobileSize = useMediaQuery("(max-width: 800px)");
   const [products, setProducts] = useState<ProductCardInterface[]>();
   const { getProducts } = useContentful();
 
   useEffect(() => {
     getProducts().then((res) => setProducts(res as ProductCardInterface[]));
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const entry = entries[0];
-      setVisibleElement(entry.isIntersecting);
-    });
-
-    console.log(visibleElement);
-
-    observer.observe(element.current as Element);
   }, []);
 
   return (

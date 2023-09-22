@@ -47,9 +47,26 @@ export default function Footer() {
             <img loading="lazy" src={fb} alt="Facebook" />
           </a>
         </div>
-        <img loading="lazy" src={logo} alt="Logo" className={styles["contacts__logo"]} />
+        <img
+          loading="lazy"
+          src={logo}
+          alt="Logo"
+          className={styles["contacts__logo"]}
+        />
         <p className={styles["contacts__rights"]}>{`
         © Aqualite 2019 - ${new Date().getFullYear()}. All rights reserved.`}</p>
+        <article>
+          <a className={styles["contacts__rights"]} href="#" target="_blank">
+            Designed by Mark Kushnerenko
+          </a>
+          <a
+            className={styles["contacts__rights"]}
+            href="https://www.linkedin.com/in/vslavyaninov/"
+            target="_blank"
+          >
+            Developed by Vsevolod Slavianinov
+          </a>
+        </article>
       </div>
     </footer>
   );
