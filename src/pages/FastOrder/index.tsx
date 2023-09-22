@@ -7,6 +7,7 @@ import logo from "../../assets/logo-white.svg";
 import phone from "../../assets/phone_icon.svg";
 import { ProductCardInterface } from "../../typings";
 import { fastOrderBackupData } from "../../utils";
+import { Helmet } from "react-helmet";
 
 export default function FastOrder() {
   const [product, setProduct] =
@@ -24,30 +25,40 @@ export default function FastOrder() {
   }, []);
 
   return (
-    <section className={styles["fast-order"]}>
-      <nav className={styles.nav}>
-        <img loading="lazy" src={logo} alt="Logo" />
-        <a href="tel:068 948 28 64" target="_blank">
-          <img loading="lazy" src={phone} alt="Phone" className="tel" />
-        </a>
-      </nav>
-      <h3 className={styles["fast-order__header"]}>швидке замовлення</h3>
+    <>
+      <Helmet>
+        <meta name="description" content="Швидке замовлення" />
+        <title>Aqualite - Швидке замовлення</title>
+        <meta
+          name="keywords"
+          content="order, water, purchase, вода, замовлення, купівля, aqualite, аквалайт"
+        ></meta>
+      </Helmet>
+      <section className={styles["fast-order"]}>
+        <nav className={styles.nav}>
+          <img loading="lazy" src={logo} alt="Logo" />
+          <a href="tel:068 948 28 64" target="_blank">
+            <img loading="lazy" src={phone} alt="Phone" className="tel" />
+          </a>
+        </nav>
+        <h3 className={styles["fast-order__header"]}>швидке замовлення</h3>
 
-      <div className={styles["fast-order__content"]}>
-        <ProductCard
-          key={product.name}
-          name={product.name}
-          description={product.description}
-          img={product.img}
-          imgLabel={product.imgLabel}
-          price={product.price}
-        />
-        <div className={styles.action}>
-          <TransparentButton reference="/" color="#FFF">
-            Перейти на сайт
-          </TransparentButton>
+        <div className={styles["fast-order__content"]}>
+          <ProductCard
+            key={product.name}
+            name={product.name}
+            description={product.description}
+            img={product.img}
+            imgLabel={product.imgLabel}
+            price={product.price}
+          />
+          <div className={styles.action}>
+            <TransparentButton reference="/" color="#FFF">
+              Перейти на сайт
+            </TransparentButton>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

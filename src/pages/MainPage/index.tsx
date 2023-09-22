@@ -6,6 +6,7 @@ import { Composition, ProductCardInterface } from "../../typings";
 import { COMPOSITION } from "../../utils";
 import ProductCard from "../../components/ProductCard";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import styles from "./MainPage.module.css";
 import hero from "../../assets/hero.svg";
 import card1 from "../../assets/card1.svg";
@@ -29,6 +30,14 @@ export default function MainPage() {
 
   return (
     <>
+      <Helmet>
+        <meta name="description" content="Головна сторінка" />
+        <title>Aqualite - Головна сторінка</title>
+        <meta
+          name="keywords"
+          content="water, main, page, вода, головна, сторінка, aqualite, аквалайт"
+        ></meta>
+      </Helmet>
       <section id="hero" className={styles.hero}>
         <div className={`${styles.container} ${styles.grid}`}>
           <div className={styles["hero__actions"]}>
