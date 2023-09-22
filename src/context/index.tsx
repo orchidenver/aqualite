@@ -5,6 +5,7 @@ import {
   useReducer,
   Reducer,
   useState,
+  useMemo,
 } from "react";
 import { reducer } from "../reducers";
 import {
@@ -86,17 +87,19 @@ export function CartProvider({ children }: ProviderInterface) {
     dispatch({ type: Actions.CLEAR_CART });
   }
 
-  const cartValue: InitialContext = {
-    cart,
-    cartTotal,
-    mobileMenuOpen,
-    addItem,
-    removeItem,
-    changeAmount,
-    clearCart,
-    closeMobileMenu,
-    toggleMobileMenu,
-  };
+  const cartValue: InitialContext = useMemo(() => {
+    return {
+      cart,
+      cartTotal,
+      mobileMenuOpen,
+      addItem,
+      removeItem,
+      changeAmount,
+      clearCart,
+      closeMobileMenu,
+      toggleMobileMenu,
+    };
+  }, [cart, cartTotal, mobileMenuOpen]);
 
   return (
     <CartContext.Provider value={cartValue}>{children}</CartContext.Provider>

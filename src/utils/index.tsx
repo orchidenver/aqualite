@@ -166,9 +166,11 @@ export const sendNotification = async (
     НОВЕ ЗАМОВЛЕННЯ \n
     Клієнт: ${capitalize(order.name)} \n
     Контакт: ${order.phone} \n
-    Адреса: вул. ${order.street && capitalize(order.street)}, ${
-    order.building
-  }, під'їзд ${order.porch}, кв. ${order.flat} \n
+    Адреса: вул. ${order.street ? capitalize(order.street) : "-"}, ${
+    order.building ? order.building : "-"
+  }, під'їзд ${order.porch ? order.porch : "-"}, кв. ${
+    order.flat ? order.flat : "-"
+  } \n
     Замовлення: \n ${newOrder ? newOrder : "передзвоніть мені"} 
   `;
 
