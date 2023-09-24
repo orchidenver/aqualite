@@ -12,15 +12,14 @@ import phone from "../../assets/phone_icon.svg";
 import basket from "../../assets/basket_icon.svg";
 
 export default function Navbar() {
-  const [burger_class, setBurgerClass] = useState<string>(
-    `${styles["burger-bar"]} ${styles.unclicked}`
-  );
-  const [isMenuClicked, setIsMenuClicked] = useState<boolean>(false);
   const [selectedSection, setSelectedSection] = useState<Anchors>(Anchors.Hero);
   const {
     cartTotal: { totalItems },
+    mobileMenuOpen,
     toggleMobileMenu,
     closeMobileMenu,
+    updateBurgerMenuClass,
+    burgerMenuClass,
   } = useCartContext();
   const location = useLocation();
   const mobileSize = useMediaQuery("(max-width: 800px)");
@@ -29,15 +28,6 @@ export default function Navbar() {
     location.pathname === "/cart" ||
     location.pathname === "/feedback";
 
-  const updateMenu = () => {
-    if (!isMenuClicked) {
-      setBurgerClass(`${styles["burger-bar"]} ${styles.clicked}`);
-    } else {
-      setBurgerClass(`${styles["burger-bar"]} ${styles.unclicked}`);
-    }
-    setIsMenuClicked(!isMenuClicked);
-  };
-
   return (
     <header className={`${doesBackgroundNeedToBeWhite && styles.white}`}>
       <div className={`${styles.container} ${styles.row}`}>
@@ -45,20 +35,25 @@ export default function Navbar() {
           <div
             className={styles["burger-menu"]}
             onClick={() => {
-              updateMenu();
+              updateBurgerMenuClass();
               toggleMobileMenu();
             }}
           >
-            <div className={burger_class}></div>
-            <div className={burger_class}></div>
-            <div className={burger_class}></div>
+            <div className={burgerMenuClass}></div>
+            <div className={burgerMenuClass}></div>
+            <div className={burgerMenuClass}></div>
           </div>
         )}
 
         <Link
           to="/"
           className={styles["header__logo"]}
-          onClick={closeMobileMenu}
+          onClick={() => {
+            if (mobileMenuOpen) {
+              closeMobileMenu();
+              updateBurgerMenuClass();
+            }
+          }}
         >
           <img
             loading="lazy"
@@ -71,7 +66,15 @@ export default function Navbar() {
           <ul
             className={`${styles["nav__list"]} ${styles["nav__list--primary"]}`}
           >
-            <li className="nav__item">
+            <li
+              className="nav__item"
+              onClick={() => {
+                if (mobileMenuOpen) {
+                  closeMobileMenu();
+                  updateBurgerMenuClass();
+                }
+              }}
+            >
               <LinkComponent
                 section="магазин"
                 selectedSection={selectedSection}
@@ -124,7 +127,15 @@ export default function Navbar() {
             </li>
           </ul>
         </nav>
-        <div className={styles.actions} onClick={closeMobileMenu}>
+        <div
+          className={styles.actions}
+          onClick={() => {
+            if (mobileMenuOpen) {
+              closeMobileMenu();
+              updateBurgerMenuClass();
+            }
+          }}
+        >
           <a href="tel:+380689482864" target="_blank">
             <img
               loading="lazy"

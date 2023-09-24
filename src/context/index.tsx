@@ -16,6 +16,7 @@ import {
   ProviderInterface,
   Product,
 } from "../typings";
+import styles from "../components/Navbar/Navbar.module.css";
 
 const initialContext: InitialContext = {
   cart: [],
@@ -23,6 +24,7 @@ const initialContext: InitialContext = {
     totalItems: 0,
     totalSum: 0,
   },
+  burgerMenuClass: "",
   addItem: () => {},
   removeItem: () => {},
   changeAmount: () => {},
@@ -30,6 +32,7 @@ const initialContext: InitialContext = {
   mobileMenuOpen: false,
   closeMobileMenu: () => {},
   toggleMobileMenu: () => {},
+  updateBurgerMenuClass: () => {},
 };
 
 const CartContext = createContext<InitialContext>(initialContext);
@@ -39,6 +42,9 @@ export function CartProvider({ children }: ProviderInterface) {
     Reducer<InitialContextState, ActionTypes>
   >(reducer, initialContext);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const [burgerMenuClass, setBurgerMenuClass] = useState<string>(
+    `${styles["burger-bar"]} ${styles.unclicked}`
+  );
 
   useEffect(() => {
     dispatch({ type: Actions.COUNT_CART_TOTALS });
@@ -50,6 +56,14 @@ export function CartProvider({ children }: ProviderInterface) {
 
   function closeMobileMenu() {
     setMobileMenuOpen(false);
+  }
+
+  function updateBurgerMenuClass() {
+    if (!mobileMenuOpen) {
+      setBurgerMenuClass(`${styles["burger-bar"]} ${styles.clicked}`);
+    } else {
+      setBurgerMenuClass(`${styles["burger-bar"]} ${styles.unclicked}`);
+    }
   }
 
   function addItem({
@@ -92,12 +106,14 @@ export function CartProvider({ children }: ProviderInterface) {
       cart,
       cartTotal,
       mobileMenuOpen,
+      burgerMenuClass,
       addItem,
       removeItem,
       changeAmount,
       clearCart,
       closeMobileMenu,
       toggleMobileMenu,
+      updateBurgerMenuClass,
     };
   }, [cart, cartTotal, mobileMenuOpen]);
 

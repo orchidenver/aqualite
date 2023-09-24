@@ -59,6 +59,7 @@ export interface InitialContextState {
     totalSum: number;
   };
   mobileMenuOpen: boolean;
+  burgerMenuClass: string;
 }
 
 export interface InitialContext extends InitialContextState {
@@ -68,6 +69,7 @@ export interface InitialContext extends InitialContextState {
   clearCart: () => void;
   closeMobileMenu: () => void;
   toggleMobileMenu: () => void;
+  updateBurgerMenuClass: () => void;
 }
 
 export enum Actions {

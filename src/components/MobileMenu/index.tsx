@@ -7,7 +7,8 @@ import { Anchors } from "../../typings";
 import LinkComponent from "../LinkComponent";
 
 export default function MobileMenu() {
-  const { mobileMenuOpen, closeMobileMenu } = useCartContext();
+  const { mobileMenuOpen, closeMobileMenu, updateBurgerMenuClass } =
+    useCartContext();
   const [selectedSection, setSelectedSection] = useState<Anchors>(Anchors.Hero);
   return (
     <aside
@@ -54,7 +55,15 @@ export default function MobileMenu() {
           </li>
         </ul>
       </nav>
-      <div className={styles["sidebar__btn"]} onClick={closeMobileMenu}>
+      <div
+        className={styles["sidebar__btn"]}
+        onClick={() => {
+          if (mobileMenuOpen) {
+            closeMobileMenu();
+            updateBurgerMenuClass();
+          }
+        }}
+      >
         <TransparentButton reference={PathConstants.FAST_ORDER}>
           Швидке замовлення
         </TransparentButton>

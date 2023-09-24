@@ -1,4 +1,5 @@
 import { LinkComponentInterface, Anchors } from "../../typings";
+import { useCartContext } from "../../context";
 import { useTranslationFromUkrtoEng } from "../../hooks/useMediaQuery";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import styles from "./LinkComponent.module.css";
@@ -8,6 +9,8 @@ export default function LinkComponent({
   selectedSection,
   setSelectedSection,
 }: LinkComponentInterface) {
+  const { mobileMenuOpen, closeMobileMenu, updateBurgerMenuClass } =
+    useCartContext();
   const lowercaseSection = useTranslationFromUkrtoEng(section) as Anchors;
   return (
     <AnchorLink
@@ -17,7 +20,14 @@ export default function LinkComponent({
           : `${styles["link"]}`
       }`}
       href={`#${lowercaseSection}`}
-      onClick={() => setSelectedSection(lowercaseSection)}
+      onClick={() => {
+        setSelectedSection(lowercaseSection);
+
+        if (mobileMenuOpen) {
+          closeMobileMenu();
+          updateBurgerMenuClass();
+        }
+      }}
     >
       {section}
     </AnchorLink>
