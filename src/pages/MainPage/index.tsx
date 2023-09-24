@@ -62,7 +62,7 @@ export default function MainPage() {
       </section>
       <section id="shop" className={styles.shop}>
         <h2 className={`${styles["shop__header"]} ${styles.blue}`}>магазин</h2>
-        <div className={`${styles.container} ${styles.row}`}>
+        <div className={`${styles.container} ${styles["cards-grid"]}`}>
           {products?.map((product: ProductCardInterface) => (
             <ProductCard
               key={product.name}
