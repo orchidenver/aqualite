@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LinkComponent from "../LinkComponent";
 import MobileMenu from "../MobileMenu";
 import { Anchors } from "../../typings";
@@ -13,6 +13,7 @@ import basket from "../../assets/basket_icon.svg";
 
 export default function Navbar() {
   const [selectedSection, setSelectedSection] = useState<Anchors>(Anchors.Hero);
+  const [animation, setAnimation] = useState<string>(styles.quantity);
   const {
     cartTotal: { totalItems },
     mobileMenuOpen,
@@ -27,6 +28,17 @@ export default function Navbar() {
     location.pathname === "/form" ||
     location.pathname === "/cart" ||
     location.pathname === "/feedback";
+
+  useEffect(() => {
+    setAnimation(`${styles.quantity} ${styles.animated}`);
+    const interval = setInterval(() => {
+      setAnimation(`${styles.quantity}`);
+    }, 2000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [totalItems]);
 
   return (
     <header className={`${doesBackgroundNeedToBeWhite && styles.white}`}>
@@ -122,7 +134,7 @@ export default function Navbar() {
             <li className={`${styles["nav__item"]} ${styles.basket}`}>
               <Link to={PathConstants.CART}>
                 <img loading="lazy" src={basket} alt="Basket" />
-                <span className={styles.quantity}>{totalItems}</span>
+                <span className={animation}>{totalItems}</span>
               </Link>
             </li>
           </ul>
@@ -152,7 +164,7 @@ export default function Navbar() {
                 alt="Basket"
                 className={styles["basket-img"]}
               />
-              <span className={styles.quantity}>{totalItems}</span>
+              <span className={animation}>{totalItems}</span>
             </Link>
           </div>
         </div>
