@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Anchors } from "../typings";
 
 export const useMediaQuery = (query: string) => {
   const [matches, setMatches] = useState(false);
@@ -19,20 +18,3 @@ export const useMediaQuery = (query: string) => {
 
   return matches;
 };
-
-export function useTranslationFromUkrtoEng(value: string) {
-  switch (value) {
-    case "магазин":
-      return Anchors.Shop;
-    case "доставка":
-      return Anchors.Delivery;
-    case "про воду":
-      return Anchors.AboutWater;
-    case "склад води":
-      return Anchors.Composition;
-    case "контакти":
-      return Anchors.Contacts;
-    default:
-      Anchors.Hero;
-  }
-}
