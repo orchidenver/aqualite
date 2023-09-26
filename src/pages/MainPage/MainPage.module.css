@@ -347,6 +347,7 @@
   .about__img {
     width: 100vw;
     margin-top: 0;
+    border-radius: 0px;
   }
 
   .about__text {

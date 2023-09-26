@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 import styles from "./Page404.module.css";
-import img from "../../assets/404.svg";
+import img from "../../assets/4041920.webp";
 
 export default function Page404() {
   return (

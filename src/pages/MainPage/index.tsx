@@ -8,15 +8,15 @@ import ProductCard from "../../components/ProductCard";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styles from "./MainPage.module.css";
-import hero from "../../assets/hero.svg";
-import card1 from "../../assets/card1.svg";
-import card2 from "../../assets/card2.svg";
-import card3 from "../../assets/card3.svg";
-import card4 from "../../assets/card4.svg";
-import waterexample1 from "../../assets/waterexample1.jpg";
-import waterexample2 from "../../assets/waterexample2.jpg";
-import waterexample3 from "../../assets/waterexample3.jpg";
-import sertificate from "../../assets/sertificate.jpg";
+import hero from "../../assets/hero1920.webp";
+import card1 from "../../assets/card11280.webp";
+import card2 from "../../assets/card21280.webp";
+import card3 from "../../assets/card31280.webp";
+import card4 from "../../assets/card41280.webp";
+import waterexample1 from "../../assets/waterexample11920.webp";
+import waterexample2 from "../../assets/waterexample21920.webp";
+import waterexample3 from "../../assets/waterexample31920.webp";
+import sertificate from "../../assets/sertificate1280.webp";
 
 export default function MainPage() {
   const element = useRef<HTMLElement>(null);
@@ -231,7 +231,7 @@ export default function MainPage() {
             </div>
           </div>
           <div className={styles["composition__sertificate"]}>
-            <a href="https://ibb.co/ymCddsG" target="_blank">
+            <a href="https://ibb.co/v1WKwsg" target="_blank">
               <img
                 loading="lazy"
                 src={sertificate}
