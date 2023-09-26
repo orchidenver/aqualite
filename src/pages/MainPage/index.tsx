@@ -8,15 +8,28 @@ import ProductCard from "../../components/ProductCard";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styles from "./MainPage.module.css";
-import hero from "../../assets/hero1920.webp";
-import card1 from "../../assets/card11280.webp";
-import card2 from "../../assets/card21280.webp";
-import card3 from "../../assets/card31280.webp";
-import card4 from "../../assets/card41280.webp";
-import waterexample1 from "../../assets/waterexample11920.webp";
-import waterexample2 from "../../assets/waterexample21920.webp";
-import waterexample3 from "../../assets/waterexample31920.webp";
-import sertificate from "../../assets/sertificate1280.webp";
+import heroBig from "../../assets/hero1920.webp";
+import heroMedium from "../../assets/hero1280.webp";
+import heroSmall from "../../assets/hero800.webp";
+import card1Medium from "../../assets/card11280.webp";
+import card2Medium from "../../assets/card21280.webp";
+import card3Medium from "../../assets/card31280.webp";
+import card4Medium from "../../assets/card41280.webp";
+import card1Small from "../../assets/card1800.webp";
+import card2Small from "../../assets/card2800.webp";
+import card3Small from "../../assets/card3800.webp";
+import card4Small from "../../assets/card4800.webp";
+import waterexample1Big from "../../assets/waterexample11920.webp";
+import waterexample2Big from "../../assets/waterexample21920.webp";
+import waterexample3Big from "../../assets/waterexample31920.webp";
+import waterexample1Medium from "../../assets/waterexample11280.webp";
+import waterexample2Medium from "../../assets/waterexample21280.webp";
+import waterexample3Medium from "../../assets/waterexample31280.webp";
+import waterexample1Small from "../../assets/waterexample1800.webp";
+import waterexample2Small from "../../assets/waterexample2800.webp";
+import waterexample3Small from "../../assets/waterexample3800.webp";
+import sertificateMedium from "../../assets/sertificate1280.webp";
+import sertificateSmall from "../../assets/sertificate1280.webp";
 
 export default function MainPage() {
   const element = useRef<HTMLElement>(null);
@@ -52,12 +65,17 @@ export default function MainPage() {
               Замовити
             </Link>
           </div>
-          <img
-            loading="lazy"
-            src={hero}
-            alt="Water"
-            className={styles["hero__img"]}
-          />
+          <picture>
+            <source media="(max-width: 800px)" srcSet={heroSmall} />
+            <source media="(max-width: 1280px)" srcSet={heroMedium} />
+            <source media="(max-width: 1920px)" srcSet={heroBig} />
+            <img
+              loading="lazy"
+              src={heroMedium}
+              alt="Water"
+              className={styles["hero__img"]}
+            />
+          </picture>
         </div>
       </section>
       <section id="shop" className={styles.shop}>
@@ -81,12 +99,17 @@ export default function MainPage() {
         </h2>
         <div className={`${styles.container} ${styles.row}`}>
           <div className={styles.card}>
-            <img
-              loading="lazy"
-              src={card1}
-              alt="Order"
-              className={styles["card__img"]}
-            />
+            <picture>
+              <source media="(max-width: 800px)" srcSet={card1Small} />
+              <source media="(max-width: 1280px)" srcSet={card1Medium} />
+              <img
+                loading="lazy"
+                src={card1Medium}
+                alt="Order"
+                className={styles["card__img"]}
+              />
+            </picture>
+
             <h2 className={styles["card__title"]}>Оформіть заявку</h2>
             <p className={styles["card__text"]}>
               На{" "}
@@ -107,24 +130,33 @@ export default function MainPage() {
             </p>
           </div>
           <div className={styles.card}>
-            <img
-              loading="lazy"
-              src={card2}
-              alt="Contact"
-              className={styles["card__img"]}
-            />
+            <picture>
+              <source media="(max-width: 800px)" srcSet={card2Small} />
+              <source media="(max-width: 1280px)" srcSet={card2Medium} />
+              <img
+                loading="lazy"
+                src={card2Medium}
+                alt="Contact"
+                className={styles["card__img"]}
+              />
+            </picture>
             <h2 className={styles["card__title"]}>Обробляємо заявку</h2>
             <p className={styles["card__text"]}>
               Оператор передзвонить вам для уточнення зручного часу доставки
             </p>
           </div>
           <div className={styles.card}>
-            <img
-              loading="lazy"
-              src={card3}
-              alt="Delivery"
-              className={styles["card__img"]}
-            />
+            <picture>
+              <source media="(max-width: 800px)" srcSet={card3Small} />
+              <source media="(max-width: 1280px)" srcSet={card3Medium} />
+              <img
+                loading="lazy"
+                src={card3Medium}
+                alt="Delivery"
+                className={styles["card__img"]}
+              />
+            </picture>
+
             <h2 className={styles["card__title"]}>Доставляємо воду</h2>
             <p className={styles["card__text"]}>
               Найкратчайшим шляхом, по улюбленим дорогам та вулочкам, під
@@ -132,12 +164,17 @@ export default function MainPage() {
             </p>
           </div>
           <div className={styles.card}>
-            <img
-              loading="lazy"
-              src={card4}
-              alt="Water"
-              className={styles["card__img"]}
-            />
+            <picture>
+              <source media="(max-width: 800px)" srcSet={card4Small} />
+              <source media="(max-width: 1280px)" srcSet={card4Medium} />
+              <img
+                loading="lazy"
+                src={card4Medium}
+                alt="Water"
+                className={styles["card__img"]}
+              />
+            </picture>
+
             <h2 className={styles["card__title"]}>Вода вже у вас</h2>
             <p className={styles["card__text"]}>
               Донесемо навіть на 9й поверх якщо вимкнули світло. Русні пи#да!
@@ -151,12 +188,20 @@ export default function MainPage() {
         </h2>
         <div className={`${styles.container} ${mobileSize ? styles.full : ""}`}>
           <div className={styles["about__container"]}>
-            <img
-              loading="lazy"
-              src={waterexample1}
-              alt="Water example"
-              className={styles["about__img"]}
-            />
+            <picture>
+              <source media="(max-width: 800px)" srcSet={waterexample1Small} />
+              <source
+                media="(max-width: 1280px)"
+                srcSet={waterexample1Medium}
+              />
+              <source media="(max-width: 1920px)" srcSet={waterexample1Big} />
+              <img
+                loading="lazy"
+                src={waterexample1Big}
+                alt="Water example"
+                className={styles["about__img"]}
+              />
+            </picture>
             <p className={styles["about__text"]}>
               Тут написать что-то про водичку, что она негазированная и еще
               всякой нужной и приятно фигни. С какого года работаем. В какие
@@ -171,12 +216,21 @@ export default function MainPage() {
               mobileSize ? "" : styles.reverse
             }`}
           >
-            <img
-              loading="lazy"
-              src={waterexample2}
-              alt="Water example"
-              className={styles["about__img"]}
-            />
+            <picture>
+              <source media="(max-width: 800px)" srcSet={waterexample2Small} />
+              <source
+                media="(max-width: 1280px)"
+                srcSet={waterexample2Medium}
+              />
+              <source media="(max-width: 1920px)" srcSet={waterexample2Big} />
+              <img
+                loading="lazy"
+                src={waterexample2Big}
+                alt="Water example"
+                className={styles["about__img"]}
+              />
+            </picture>
+
             <p
               className={`${styles["about__text"]} ${
                 mobileSize ? "" : styles["about__text-left"]
@@ -190,12 +244,20 @@ export default function MainPage() {
             </p>
           </div>
           <div className={styles["about__container"]}>
-            <img
-              loading="lazy"
-              src={waterexample3}
-              alt="Water example"
-              className={styles["about__img"]}
-            />
+            <picture>
+              <source media="(max-width: 800px)" srcSet={waterexample3Small} />
+              <source
+                media="(max-width: 1280px)"
+                srcSet={waterexample3Medium}
+              />
+              <source media="(max-width: 1920px)" srcSet={waterexample3Big} />
+              <img
+                loading="lazy"
+                src={waterexample3Big}
+                alt="Water example"
+                className={styles["about__img"]}
+              />
+            </picture>
             <p className={styles["about__text"]}>
               Lorem Ipsum - это текст-"рыба", часто используемый в печати и
               вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов
@@ -232,12 +294,19 @@ export default function MainPage() {
           </div>
           <div className={styles["composition__sertificate"]}>
             <a href="https://ibb.co/v1WKwsg" target="_blank">
-              <img
-                loading="lazy"
-                src={sertificate}
-                alt="Sertificate"
-                className={styles["composition__img"]}
-              />
+              <picture>
+                <source media="(max-width: 800px)" srcSet={sertificateSmall} />
+                <source
+                  media="(max-width: 1280px)"
+                  srcSet={sertificateMedium}
+                />
+                <img
+                  loading="lazy"
+                  src={sertificateMedium}
+                  alt="Sertificate"
+                  className={styles["composition__img"]}
+                />
+              </picture>
             </a>
             <p className={styles["composition__text"]}>
               Вода сертифікована Державною службою України з питань безпечності

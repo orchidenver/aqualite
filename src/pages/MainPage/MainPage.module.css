@@ -155,8 +155,11 @@
   padding: 4vh 0;
 }
 
+.about__container picture {
+  width: 70%;
+}
 .about__img {
-  width: 55%;
+  width: 75%;
   border-radius: 30px;
 }
 
@@ -165,7 +168,7 @@
   padding: 2vh;
   position: absolute;
   top: 50%;
-  left: 65%;
+  left: 72%;
   transform: translate(-50%, -50%);
   background-color: #fff;
   border-radius: 15px;
@@ -342,6 +345,10 @@
   .about__container {
     display: block;
     padding: 0;
+  }
+
+  .about__header {
+    margin-bottom: 4vh;
   }
 
   .about__img {
