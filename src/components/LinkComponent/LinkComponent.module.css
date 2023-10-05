@@ -14,6 +14,10 @@
   color: var(--h3-color-hover);
 }
 
+.active-link {
+  color: var(--h3-color-hover);
+}
+
 @media (max-width: 1280px) {
   .link {
     font-size: 0.75rem;

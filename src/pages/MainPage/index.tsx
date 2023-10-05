@@ -69,28 +69,25 @@ export default function MainPage() {
             <source media="(max-width: 800px)" srcSet={heroSmall} />
             <source media="(max-width: 1280px)" srcSet={heroMedium} />
             <source media="(max-width: 1920px)" srcSet={heroBig} />
-            <img
-              loading="lazy"
-              src={heroMedium}
-              alt="Water"
-              className={styles["hero__img"]}
-            />
+            <img src={heroMedium} alt="Water" className={styles["hero__img"]} />
           </picture>
         </div>
       </section>
       <section id="shop" className={styles.shop}>
         <h2 className={`${styles["shop__header"]} ${styles.blue}`}>магазин</h2>
         <div className={`${styles.container} ${styles["cards-grid"]}`}>
-          {products?.map((product: ProductCardInterface) => (
-            <ProductCard
-              key={product.name}
-              name={product.name}
-              description={product.description}
-              img={product.img}
-              imgLabel={product.imgLabel}
-              price={product.price}
-            />
-          ))}
+          {products
+            ?.map((product: ProductCardInterface) => (
+              <ProductCard
+                key={product.name}
+                name={product.name}
+                description={product.description}
+                img={product.img}
+                imgLabel={product.imgLabel}
+                price={product.price}
+              />
+            ))
+            .reverse()}
         </div>
       </section>
       <section id="delivery" className={styles.delivery}>

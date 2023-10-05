@@ -72,6 +72,7 @@ export default function Navbar() {
             src={logo}
             alt="Logo"
             className={styles["header__img"]}
+            onClick={() => setSelectedSection(Anchors.Empty)}
           />
         </Link>
         <nav className={`header__nav ${styles.nav}`}>
@@ -124,6 +125,7 @@ export default function Navbar() {
           </ul>
           <ul
             className={`${styles["nav__list"]} ${styles["nav__list--secondary"]}`}
+            onClick={() => setSelectedSection(Anchors.Empty)}
           >
             <li className={styles["nav__item"]}>
               <a href="tel:+380689482864" target="_blank">
@@ -134,7 +136,9 @@ export default function Navbar() {
             <li className={`${styles["nav__item"]} ${styles.basket}`}>
               <Link to={PathConstants.CART}>
                 <img loading="lazy" src={basket} alt="Basket" />
-                <span className={animation}>{totalItems}</span>
+                {totalItems > 0 && (
+                  <span className={animation}>{totalItems}</span>
+                )}
               </Link>
             </li>
           </ul>
@@ -164,7 +168,9 @@ export default function Navbar() {
                 alt="Basket"
                 className={styles["basket-img"]}
               />
-              <span className={animation}>{totalItems}</span>
+              {totalItems > 0 && (
+                <span className={animation}>{totalItems}</span>
+              )}
             </Link>
           </div>
         </div>

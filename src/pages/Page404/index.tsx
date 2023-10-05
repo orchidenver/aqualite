@@ -21,7 +21,6 @@ export default function Page404() {
           <source media="(max-width: 1280px)" srcSet={imgMedium} />
           <source media="(max-width: 1920px)" srcSet={imgBig} />
           <img
-            loading="lazy"
             src={imgMedium}
             alt="error"
             className={styles["error-page__img"]}

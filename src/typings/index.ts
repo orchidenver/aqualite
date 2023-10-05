@@ -12,6 +12,7 @@ export enum Anchors {
   AboutWater = "aboutwater",
   Composition = "composition",
   Contacts = "contacts",
+  Empty = "",
 }
 
 export interface LinkComponentInterface {
