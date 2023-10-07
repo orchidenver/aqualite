@@ -30,10 +30,12 @@ import waterexample2Small from "../../assets/waterexample2800.webp";
 import waterexample3Small from "../../assets/waterexample3800.webp";
 import sertificateMedium from "../../assets/sertificate1280.webp";
 import sertificateSmall from "../../assets/sertificate1280.webp";
+import arrowDown from "../../assets/arrowdown.svg";
 
 export default function MainPage() {
   const element = useRef<HTMLElement>(null);
   const mobileSize = useMediaQuery("(max-width: 800px)");
+  const hdSize = useMediaQuery("(min-width: 1921px)");
   const [products, setProducts] = useState<ProductCardInterface[]>();
   const { getProducts } = useContentful();
 
@@ -71,6 +73,11 @@ export default function MainPage() {
             <source media="(max-width: 1920px)" srcSet={heroBig} />
             <img src={heroMedium} alt="Water" className={styles["hero__img"]} />
           </picture>
+          {hdSize && (
+            <div className={styles.arrow}>
+              <img src={arrowDown} alt="Scroll down" />
+            </div>
+          )}
         </div>
       </section>
       <section id="shop" className={styles.shop}>
