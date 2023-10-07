@@ -120,7 +120,6 @@ export interface ProductCardInterface {
   imgLabel: string;
   name: string;
   price: number | boolean;
-  counter: boolean;
 }
 
 export type PricesInterface = {

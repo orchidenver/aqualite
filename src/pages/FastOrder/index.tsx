@@ -51,7 +51,6 @@ export default function FastOrder() {
             img={product.img}
             imgLabel={product.imgLabel}
             price={product.price}
-            counter={true}
           />
           <div className={styles.action}>
             <TransparentButton reference="/" color="#FFF">

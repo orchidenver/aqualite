@@ -4,6 +4,7 @@ import { useMediaQuery } from "../../hooks/useMediaQuery";
 import styles from "./ProductCard.module.css";
 import { ProductCardInterface } from "../../typings";
 import { useCartContext } from "../../context";
+import { useLocation } from "react-router-dom";
 
 export default function ProductCard({
   name,
@@ -11,11 +12,11 @@ export default function ProductCard({
   img,
   imgLabel,
   price,
-  counter,
 }: ProductCardInterface) {
   const { addItem, cart } = useCartContext();
   const largeMobileSize = useMediaQuery("(min-width: 376px)");
   const mobileSize = useMediaQuery("(max-width: 800px)");
+  const location = useLocation();
   const cardStylingSize = largeMobileSize && mobileSize;
   const product = cart.find((item) => item.id === imgLabel);
 
@@ -44,7 +45,7 @@ export default function ProductCard({
         {name}
       </h2>
       <p className={styles["card__text"]}>{description}</p>
-      {counter && (
+      {location.pathname === "/order" && (
         <Counter
           label={imgLabel}
           name={name}

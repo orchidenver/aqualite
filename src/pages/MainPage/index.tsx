@@ -92,7 +92,6 @@ export default function MainPage() {
                 img={product.img}
                 imgLabel={product.imgLabel}
                 price={product.price}
-                counter={false}
               />
             ))
             .reverse()}
