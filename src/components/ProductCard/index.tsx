@@ -11,6 +11,7 @@ export default function ProductCard({
   img,
   imgLabel,
   price,
+  counter,
 }: ProductCardInterface) {
   const { addItem, cart } = useCartContext();
   const largeMobileSize = useMediaQuery("(min-width: 376px)");
@@ -43,13 +44,15 @@ export default function ProductCard({
         {name}
       </h2>
       <p className={styles["card__text"]}>{description}</p>
-      <Counter
-        label={imgLabel}
-        name={name}
-        price={price}
-        description={description}
-        img={img}
-      />
+      {counter && (
+        <Counter
+          label={imgLabel}
+          name={name}
+          price={price}
+          description={description}
+          img={img}
+        />
+      )}
       <p className={styles["card__price"]}>
         {!price ? (
           "Уточнюйте ціну"
