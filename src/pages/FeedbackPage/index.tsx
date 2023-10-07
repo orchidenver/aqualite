@@ -6,6 +6,7 @@ import styles from "./FeedBack.module.css";
 
 export default function FeedbackPage() {
   const mobileSize = useMediaQuery("(max-width: 800px)");
+  console.log(history.state);
 
   return (
     <>
@@ -25,10 +26,13 @@ export default function FeedbackPage() {
           <p className={styles["success__text"]}>
             Найближчим часом ми зв’яжемося з Вами для його підтвердження.
           </p>
+          <TransparentButton reference="/">На головну</TransparentButton>
           <TransparentButton
-            reference={mobileSize ? PathConstants.FAST_ORDER : "/#shop"}
+            reference={
+              mobileSize ? PathConstants.FAST_ORDER : `/${PathConstants.FORM}`
+            }
           >
-            Замовити ще
+            Швидке замовлення
           </TransparentButton>
         </div>
       </section>
