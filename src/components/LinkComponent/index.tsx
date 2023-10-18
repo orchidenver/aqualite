@@ -14,6 +14,7 @@ export default function LinkComponent({
     useCartContext();
   const mobileSize = useMediaQuery("(max-width: 800px)");
   const lowercaseSection = useTranslationFromUkrToEng(section) as Anchors;
+  console.log(lowercaseSection);
   return (
     <AnchorLink
       offset={mobileSize ? 50 : 100}

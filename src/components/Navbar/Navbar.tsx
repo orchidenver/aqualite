@@ -28,6 +28,7 @@ export default function Navbar() {
     location.pathname === "/form" ||
     location.pathname === "/cart" ||
     location.pathname === "/feedback";
+  const isCurrentPageAHomepage = location.pathname === "/";
 
   useEffect(() => {
     setAnimation(`${styles.quantity} ${styles.animated}`);
@@ -88,39 +89,69 @@ export default function Navbar() {
                 }
               }}
             >
-              <LinkComponent
-                section="магазин"
-                selectedSection={selectedSection}
-                setSelectedSection={setSelectedSection}
-              />
+              {isCurrentPageAHomepage ? (
+                <LinkComponent
+                  section="магазин"
+                  selectedSection={selectedSection}
+                  setSelectedSection={setSelectedSection}
+                />
+              ) : (
+                <Link className={styles.link} to="/">
+                  магазин
+                </Link>
+              )}
             </li>
             <li className="nav__item">
-              <LinkComponent
-                section="доставка"
-                selectedSection={selectedSection}
-                setSelectedSection={setSelectedSection}
-              />
+              {isCurrentPageAHomepage ? (
+                <LinkComponent
+                  section="доставка"
+                  selectedSection={selectedSection}
+                  setSelectedSection={setSelectedSection}
+                />
+              ) : (
+                <Link className={styles.link} to="/">
+                  доставка
+                </Link>
+              )}
             </li>
             <li className="nav__item">
-              <LinkComponent
-                section="про воду"
-                selectedSection={selectedSection}
-                setSelectedSection={setSelectedSection}
-              />
+              {isCurrentPageAHomepage ? (
+                <LinkComponent
+                  section="про воду"
+                  selectedSection={selectedSection}
+                  setSelectedSection={setSelectedSection}
+                />
+              ) : (
+                <Link className={styles.link} to="/">
+                  про воду
+                </Link>
+              )}
             </li>
             <li className="nav__item">
-              <LinkComponent
-                section="склад води"
-                selectedSection={selectedSection}
-                setSelectedSection={setSelectedSection}
-              />
+              {isCurrentPageAHomepage ? (
+                <LinkComponent
+                  section="склад води"
+                  selectedSection={selectedSection}
+                  setSelectedSection={setSelectedSection}
+                />
+              ) : (
+                <Link className={styles.link} to="/">
+                  склад води
+                </Link>
+              )}
             </li>
             <li className="nav__item">
-              <LinkComponent
-                section="контакти"
-                selectedSection={selectedSection}
-                setSelectedSection={setSelectedSection}
-              />
+              {isCurrentPageAHomepage ? (
+                <LinkComponent
+                  section="контакти"
+                  selectedSection={selectedSection}
+                  setSelectedSection={setSelectedSection}
+                />
+              ) : (
+                <Link className={styles.link} to="/">
+                  контакти
+                </Link>
+              )}
             </li>
           </ul>
           <ul
