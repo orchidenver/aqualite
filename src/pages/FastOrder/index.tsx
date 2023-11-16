@@ -57,7 +57,7 @@ export default function FastOrder() {
               reference="/"
               color="#FFF"
               width={190}
-              margin="7vh 0 0 0"
+              margin="5vh 0 0 0"
               fontSize=".9rem"
             >
               Перейти на сайт
