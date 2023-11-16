@@ -1,6 +1,5 @@
 import Button from "../Button";
 import Counter from "../Counter";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
 import styles from "./ProductCard.module.css";
 import { ProductCardInterface } from "../../typings";
 import { useCartContext } from "../../context";
