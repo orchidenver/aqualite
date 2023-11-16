@@ -1,7 +1,6 @@
 .button {
   border-radius: 100px;
-  width: 50vw;
-  max-width: 170px;
+  width: 100%;
   border: none;
   background: linear-gradient(
     90deg,

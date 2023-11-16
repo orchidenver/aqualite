@@ -1,19 +1,20 @@
 .card {
-  width: 65vw;
-  max-width: 220px;
-  height: 70vh;
-  max-height: 340px;
+  width: 250px;
+  height: 400px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   align-items: center;
   border-radius: 24px;
   box-shadow: 0px 0px 48px 0px rgba(0, 93, 180, 0.2);
+  padding: 15px;
+  gap: 5px;
 }
 
 .card__img {
-  width: 50%;
+  width: 100%;
+  flex-grow: 1;
 }
 
 .card__title {
@@ -27,7 +28,7 @@
 
 .card__text {
   color: var(--text-color);
-  width: 50%;
+  width: 85%;
   font-weight: 300;
   font-size: 0.75rem;
   line-height: 15px;
