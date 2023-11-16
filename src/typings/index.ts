@@ -30,9 +30,10 @@ export interface ButtonInterface {
 export interface TransparentButtonInterface {
   reference: string;
   children: string;
-  width?: string;
+  width?: string | number;
   margin?: string;
   color?: string;
+  fontSize?: number | string;
 }
 
 export interface Composition {

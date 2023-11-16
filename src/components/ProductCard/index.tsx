@@ -1,5 +1,6 @@
 import Button from "../Button";
 import Counter from "../Counter";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
 import styles from "./ProductCard.module.css";
 import { ProductCardInterface } from "../../typings";
 import { useCartContext } from "../../context";
@@ -13,13 +14,18 @@ export default function ProductCard({
   price,
 }: ProductCardInterface) {
   const { addItem, cart } = useCartContext();
+  const smallMobile = useMediaQuery("(max-width: 376px)");
   const location = useLocation();
   const product = cart.find((item) => item.id === imgLabel);
 
   return (
     <div
       className={styles.card}
-      style={{ height: location.pathname === "/order" ? 450 : 400 }}
+      style={{
+        height: location.pathname === "/order" ? "60vh" : 400,
+        width: location.pathname === "/order" ? "75vw" : 250,
+        maxWidth: location.pathname === "/order" && smallMobile ? 250 : 330,
+      }}
     >
       <img
         loading="lazy"

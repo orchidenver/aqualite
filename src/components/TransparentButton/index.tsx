@@ -8,6 +8,7 @@ export default function TransparentButton({
   width,
   margin,
   color,
+  fontSize,
 }: TransparentButtonInterface) {
   return (
     <Link
@@ -17,6 +18,7 @@ export default function TransparentButton({
         width,
         margin,
         color,
+        fontSize,
       }}
     >
       {children}

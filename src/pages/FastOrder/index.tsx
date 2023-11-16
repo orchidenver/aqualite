@@ -53,7 +53,13 @@ export default function FastOrder() {
             price={product.price}
           />
           <div className={styles.action}>
-            <TransparentButton reference="/" color="#FFF">
+            <TransparentButton
+              reference="/"
+              color="#FFF"
+              width={190}
+              margin="7vh 0 0 0"
+              fontSize=".9rem"
+            >
               Перейти на сайт
             </TransparentButton>
           </div>
