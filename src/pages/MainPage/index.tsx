@@ -39,6 +39,8 @@ export default function MainPage() {
   const [products, setProducts] = useState<ProductCardInterface[]>();
   const { getProducts } = useContentful();
 
+  console.log(products);
+
   useEffect(() => {
     getProducts().then((res) => setProducts(res as ProductCardInterface[]));
   }, []);
@@ -83,18 +85,16 @@ export default function MainPage() {
       <section id="shop" className={styles.shop}>
         <h2 className={`${styles["shop__header"]} ${styles.blue}`}>магазин</h2>
         <div className={`${styles.container} ${styles["cards-grid"]}`}>
-          {products
-            ?.map((product: ProductCardInterface) => (
-              <ProductCard
-                key={product.name}
-                name={product.name}
-                description={product.description}
-                img={product.img}
-                imgLabel={product.imgLabel}
-                price={product.price}
-              />
-            ))
-            .reverse()}
+          {products?.map((product: ProductCardInterface) => (
+            <ProductCard
+              key={product.name}
+              name={product.name}
+              description={product.description}
+              img={product.img}
+              imgLabel={product.imgLabel}
+              price={product.price}
+            />
+          ))}
         </div>
       </section>
       <section id="delivery" className={styles.delivery}>

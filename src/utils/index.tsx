@@ -183,14 +183,12 @@ export const sendNotification = async (
 
 export function assertTypeOfData<T>(arg: any): asserts arg is T {
   if (typeof arg !== "number" && typeof arg !== "string") {
-    console.log("!!!", arg);
     throw new Error(`${arg} ${typeof arg} error`);
   }
 }
 
 export function assertTypeOfPrice(arg: any): asserts arg is number | boolean {
   if (typeof arg !== "number" && typeof arg !== "boolean") {
-    console.log("!!!", arg);
     throw new Error(`${arg} ${typeof arg} error`);
   }
 }
