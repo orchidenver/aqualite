@@ -125,3 +125,5 @@ export function CartProvider({ children }: ProviderInterface) {
 export function useCartContext() {
   return useContext(CartContext);
 }
+
+console.log("hello");

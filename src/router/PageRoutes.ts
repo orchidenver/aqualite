@@ -1,7 +1,7 @@
 export const PathConstants = {
   CART: "cart",
   FAST_ORDER: "/order",
-  FEEDBACK: "feedback",
+  FEEDBACK: "/feedback",
   FORM: "form",
   MAIN_PAGE: "/",
   PAGE404: "*",
