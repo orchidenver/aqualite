@@ -34,16 +34,19 @@ export default function Footer() {
           мереж.
         </p>
         <div className={styles["contacts__messengers"]}>
-          <a href="#" target="_blank">
+          <a href="https://t.me/Aqualite_ua" target="_blank">
             <img loading="lazy" src={tg} alt="Telegram" />
           </a>
-          <a href="#" target="_blank">
+          <a
+            href="https://www.instagram.com/aqualite.ua?igsh=eDd6ZHdlM2h2bWJv"
+            target="_blank"
+          >
             <img loading="lazy" src={ig} alt="Instagram" />
           </a>
-          <a href="#" target="_blank">
+          <a href="https://viber.click/380689482864" target="_blank">
             <img loading="lazy" src={viber} alt="Viber" />
           </a>
-          <a href="#" target="_blank">
+          <a href="https://www.facebook.com/share/1DCbPrk5Wv" target="_blank">
             <img loading="lazy" src={fb} alt="Facebook" />
           </a>
         </div>
